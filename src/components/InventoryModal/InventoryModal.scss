@@ -1,0 +1,135 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.button__delete{
+    font-family: 'Titillium Web', sans-serif;
+    width: 120px;
+    height: 30px;
+    border-radius: 2rem;
+    border: none;
+    background-color: $supporting-red;
+    color: $primary-white;
+    transition: .2s;
+    @include tablet {
+        width: 5rem;
+        &:hover {
+            background-color: $background-graphite;
+        }
+    }
+}
+.button__cancel{
+    font-family: 'Titillium Web', sans-serif;
+    width: 120px;
+    height: 30px;
+    border-radius: 2rem; 
+    border: 1px solid $secondary-slate;
+    background-color: $primary-white;
+    color: $primary-black;
+    transition: .1s;
+    @include tablet {
+        width: 5rem;
+        &:hover {
+            border: 1px solid $primary-indigo;
+            color: $primary-indigo;
+        }
+    }
+}
+
+.close {
+    color: $primary-black;
+    font-size: 2.5rem;
+    font-weight: 100;
+    transition: .1s;
+    padding: 1rem 0;
+    &:hover {
+        color: $supporting-red;;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    &:focus {
+        color: $supporting-red;;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #232940bb;
+    @include tablet {
+        align-items: flex-start;
+    }
+    &__list {
+        background-color: $background-light-grey;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 16rem;
+        height: 32rem;
+        @include tablet{
+            margin-top: 10rem;
+            width: 648px;
+            height: 13rem;
+        }
+        @include desktop {
+            width: 674px;
+        }
+        &-close {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 1rem;
+            width: 100%
+        }
+        &-content {
+            height: 38rem;
+            @include tablet {
+                height: 9rem;
+            }
+        }
+        &-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            @include tablet {
+                width: 90%;
+                justify-content: flex-start;
+                gap: 1rem;
+            }
+        }
+    }
+    &__title {
+        font-size: 1.5rem;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+        @include tablet {
+            font-size: 2.125rem;
+            padding: 0 2rem;
+        }
+    }
+    &__text {
+        line-height: 1.5rem;
+        font-size: .875rem;
+        @include tablet {
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            width: 80%;
+        }
+    }
+};
