@@ -1,0 +1,33 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouses {
+    padding: 2rem $interior-alignment;
+
+    &__nav {
+        @include flex-it(nowrap, flex-start, normal, column);
+
+        @include tablet {
+            @include flex-it(nowrap, space-between, normal, row);
+        }
+    }
+
+    &__form {
+        @include flex-it(nowrap, flex-start, normal, column);
+
+        @include tablet {
+            @include flex-it(nowrap, space-between, normal, row);
+        }
+    }
+
+    &__headers {
+        display: none;
+
+        @include tablet {
+            @include flex-it(nowrap, space-between, normal, row);
+        }
+    }
+}

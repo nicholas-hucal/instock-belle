@@ -1,4 +1,4 @@
-import './Home.scss';
+import './Warehouses.scss';
 import axios from 'axios';
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import { Component } from 'react';
@@ -13,7 +13,7 @@ class Warehouses extends Component {
 
     updateList = () => {
         axios
-            .get(`/warehouse`)
+            .get("http://localhost:8080/warehouse")
             .then((response) => {
                 this.setState({displayedWarehouses: response.data});
             })
@@ -22,23 +22,12 @@ class Warehouses extends Component {
             });
     };
 
-    // onDeleteWarehouse = (warehouseId) => {
-    //     axios
-    //         .delete(`/warehouses/${warehouseId}?api_key=${API_KEY}`)
-    //         .then(() => {
-    //             this.updateList();
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // };
-
     render () {
         return (
             <div className='warehouses'>
                 <div className='warehouses__nav'>
                     <h1>Warehouses</h1>
-                    <div>
+                    <div className='warehouses__form'>
                         <p>search</p>
                         <p>button</p>
                     </div>
