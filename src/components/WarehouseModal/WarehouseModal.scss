@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.button__delete{
+    width: 178px;
+    height: 36px;
+    border-radius: 2rem;
+    border: none;
+    background-color: orange;
+    color: white;
+}
+
+.button__cancel{
+    width: 178px;
+    height: 36px;
+    border-radius: 2rem;
+    border: 1px solid grey;
+    background-color: white;
+    color: rgb(47, 47, 47);
+}
+
+.close {
+    color: rgb(36, 34, 34);
+    font-size: 28px;
+    font-weight: bold;
+    transition: .1s;
+    padding: 1rem 0;
+    &:hover {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    &:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(128, 128, 128, 0.424);
+    &__list {
+        background-color: #fefefe;
+        border: 1px solid black;
+        list-style-type: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 1rem;
+        width: 375px;
+        height: 667px;
+        &-close {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 1rem;
+            width: 100%
+        }
+        &-content {
+            height: 38rem;
+        }
+        &-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+        }
+    }
+    &__title {
+        padding: 1rem 0;
+        font-size: 2rem;
+    }
+    &__text {
+        line-height: 1.5rem;
+        font-size: 1.0rem;
+    }
+};
