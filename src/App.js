@@ -2,8 +2,8 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      InStock
+    <div className="instock">
+      <h1>San Francisco</h1>
     </div>
   );
 }
