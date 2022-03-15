@@ -1,0 +1,78 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
+
+.header{
+  background-color: $background-graphite;
+  color: $primary-white;
+  display: flex;
+  flex-direction: column;
+  height: 12.5rem;
+  @include tablet{
+      display: flex;
+  }
+  @include desktop{
+      height: 15vw;
+  }
+  &__logo{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vw; 
+    @include tablet{
+        margin-top: 0;
+    }
+  }
+  &__container{
+    padding: 0 1rem;
+    @include tablet{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 4vw;
+        padding: 0 5vw;
+    }
+    @include desktop{
+        padding: 0 10vw;
+        margin-top: 2.5vw;
+    }
+      &__list{
+          display:flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-top: 2.5vh;
+          @include tablet{
+              margin-top: 0;
+          }
+          &__active{
+              height: 3vh;
+              width: 100%;
+              color: $primary-white;
+              border-radius: 1.25rem;
+              padding: 0.5rem 1rem;
+              font-size: 0.813rem;
+              text-align: center;
+              &:hover{
+                  background-color: $primary-black;
+                }
+              @include tablet{
+                  height: 2.5vh;
+              }  
+            }
+          &__item{
+              width: 100%;
+              height: 3vh;
+              text-align: center;
+              color: $primary-white;
+              padding: 0.5rem 1rem;
+              border-radius: 1.25rem;
+              font-size: 0.813rem;
+              &:hover{
+                  background-color: $primary-black;
+              }
+              @include tablet{
+                  height: 2.5vh;
+              } 
+          }
+      }
+  }
+}
