@@ -5,13 +5,16 @@
 @use '../../styles/partials/variables' as *;
 
 .warehouses {
-    padding: 2rem $interior-alignment;
+    padding: 2rem $interior-alignment 0 $interior-alignment;
 
     &__nav {
         @include flex-it(nowrap, flex-start, normal, column);
+        border-bottom: 1.5px solid $secondary-cloud;
+        padding-bottom: 2rem;
 
         @include tablet {
             @include flex-it(nowrap, space-between, normal, row);
+            border-bottom: none
         }
     }
 
@@ -25,9 +28,29 @@
 
     &__headers {
         display: none;
+        color: $secondary-slate;
+        background-color: $background-light-grey;
+        text-transform: uppercase;
+        padding: 1rem 0;
 
         @include tablet {
-            @include flex-it(nowrap, space-between, normal, row);
+            @include flex-it(nowrap, flex-start, normal, row);
+        }
+    }
+
+    &__header {
+        box-sizing: border-box;
+        &--short {
+            width: 18%;
+            padding-left: 2rem;
+        }
+
+        &--long {
+            width: 27%;
+        }
+
+        &--action {
+            width: 10%;
         }
     }
 }
