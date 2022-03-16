@@ -11,6 +11,7 @@
   @include tablet{
       display: flex;
       height: 11.625rem;
+      padding-top: 0;
   }
   @include desktop{
       height: 11.625rem;
