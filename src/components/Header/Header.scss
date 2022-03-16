@@ -14,6 +14,7 @@
   }
   @include desktop{
       height: 11.625rem;
+      padding-top: 0;
   }
   &__logo{
     display: flex;
