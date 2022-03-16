@@ -11,7 +11,7 @@ html, body, figure, blockquote, section {
 li, a{
     text-decoration: none;
     list-style-type: none;
-    color: $primary-white;
+    color: colors.$primary-white;
 }
 
 input:focus, textarea:focus, select:focus{
