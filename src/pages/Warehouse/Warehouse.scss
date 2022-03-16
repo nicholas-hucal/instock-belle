@@ -2,5 +2,18 @@
 @use '../../styles/partials/mixins';
 
 .warehouse {
-    
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+        padding-left: 1.75rem;
+        padding-right: 1.5rem;
+        &-icons{
+            // width: 10px;
+        }
+        &-text{
+            padding-right: 1rem;
+        }
+    }
 }
