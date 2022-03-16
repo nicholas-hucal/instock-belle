@@ -31,7 +31,7 @@ class Warehouses extends Component {
                     <h1>Warehouses</h1>
                     <div className='warehouses__form'>
                         <SearchBox />
-                        <Button />
+                        <Button text="+ Add New Warehouse"/>
                     </div>
                 </div>
                 <div className="warehouses__headers">
