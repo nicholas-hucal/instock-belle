@@ -1,14 +1,17 @@
 import './App.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Header from './components/Header/Header.js'
+import Header from './components/Header/Header'
 import Warehouse from './pages/Warehouse/Warehouse.js';
 import Inventory from './pages/Inventory/Inventory.js';
 import NotFound from './pages/NotFound/NotFound.js';
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
     <BrowserRouter>
     <Header />
+    <main className="main">
+      <section  className="main__content">
       <Switch>
         <Route path="/" exact component={Warehouse} />
         <Route path="/:warehouseId" component={Warehouse} />
@@ -20,6 +23,9 @@ function App() {
         <Route path="/inventory/add" component={Inventory} />
         <Route component={NotFound} />
       </Switch>
+      </section>
+    </main>
+    <Footer />
     </BrowserRouter>
   );
 }
