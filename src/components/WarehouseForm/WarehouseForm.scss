@@ -8,11 +8,18 @@
     &__header {
         display: flex;
         align-items: baseline;
+        padding: 0 1rem;
+        @include tablet {
+            border-bottom: 1px solid $secondary-cloud;
+            padding: 0 2rem;
+        }
     }
 
     &__back-btn {
         border: none;
         background-color: $primary-white;
+        margin: 0;
+        padding: 0;
     }
 
     &__heading {
@@ -35,11 +42,34 @@
         margin-top: 0.25rem;
         border: 1px solid $secondary-cloud;
         padding: 0.5rem 1rem;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+        }
     }
 
     &__section {
         border-top: 1px solid $secondary-cloud;
         padding: 1rem;
+        flex: 1;
+
+        @include tablet {
+            padding: 0 2rem;
+            margin: 2rem 0;
+            border: none;
+        }
+
+        &--first {
+            @include tablet {
+                border-right: 1px solid $secondary-cloud;
+            }
+        }
     }
 
     &__buttons {
@@ -47,13 +77,22 @@
         background-color: $background-light-grey;
         display: flex;
         flex-direction: row;
+        
+        @include tablet {
+            justify-content: flex-end;
+            padding: 1rem 2rem;
+        }
     }
 
     &__button {
         border-radius: 1.25rem;
-        flex: 1;
+        width: 100%;
         padding: 0.25rem 1rem;
         justify-content: space-between;
+
+        @include tablet {
+            width: auto;
+        }
         
         &--submit {
             font-weight: bold;
