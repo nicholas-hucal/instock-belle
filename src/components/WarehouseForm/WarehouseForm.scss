@@ -1,0 +1,72 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-form {
+
+    background-color: $primary-white;
+
+    &__header {
+        display: flex;
+        align-items: baseline;
+    }
+
+    &__back-btn {
+        border: none;
+        background-color: $primary-white;
+    }
+
+    &__heading {
+        padding: 2rem 1rem;
+    }
+
+    &__subheading {
+        margin-bottom: 2rem;
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    &__input {
+        border-radius: 1.25rem;
+        margin-top: 0.25rem;
+        border: 1px solid $secondary-cloud;
+        padding: 0.5rem 1rem;
+    }
+
+    &__section {
+        border-top: 1px solid $secondary-cloud;
+        padding: 1rem;
+    }
+
+    &__buttons {
+        padding: 1rem;
+        background-color: $background-light-grey;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__button {
+        border-radius: 1.25rem;
+        flex: 1;
+        padding: 0.25rem 1rem;
+        justify-content: space-between;
+        
+        &--submit {
+            font-weight: bold;
+            border: 1px solid $primary-indigo;
+            background-color: $primary-indigo;
+            color: $primary-white;
+            margin-left: 0.5rem;
+        }
+
+        &--cancel {
+            border: 1px solid $secondary-cloud;
+            background-color: $primary-white;
+            margin-right: 0.5rem;
+        }
+    }
+}
