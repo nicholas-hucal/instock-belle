@@ -10,7 +10,7 @@
     &__nav {
         @include flex-it(nowrap, flex-start, normal, column);
         border-bottom: 1.5px solid $secondary-cloud;
-        padding-bottom: 2rem;
+        padding-bottom: 1rem;
 
         @include tablet {
             @include flex-it(nowrap, space-between, normal, row);
@@ -20,9 +20,12 @@
 
     &__form {
         @include flex-it(nowrap, flex-start, normal, column);
+        gap: 1.3rem;
+        margin: 1.5rem 0;
 
         @include tablet {
             @include flex-it(nowrap, space-between, normal, row);
+            margin: 0;
         }
     }
 
