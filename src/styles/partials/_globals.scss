@@ -1,7 +1,7 @@
-@use "colors" as *;
-@use "variables" as *;
-@use "typography" as *;
-@use "mixins" as *;
+@use "colors";
+@use "variables";
+@use "typography";
+@use "mixins";
 
 html, body, figure, blockquote, section {
     margin: 0;
