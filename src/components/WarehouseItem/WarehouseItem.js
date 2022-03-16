@@ -36,7 +36,7 @@ function WarehouseItem ({ id, name, address, contactName, contactPhone, contactE
             </div>
             <div className="warehouses__action">
                 <img src={deleteIcon} alt='delete icon' className="warehouses__icon"/>
-                <img src={editIcon} alt='edit icon' className="warehouses__icon"/>
+                <Link to={`/warehouse/${id}/edit`} className="warehouses__link"><img src={editIcon} alt='edit icon' className="warehouses__icon"/></Link>
             </div>
         </div>
     );
