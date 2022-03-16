@@ -1,12 +1,17 @@
 @use "colors";
 @use "variables";
 @use "typography";
-@use "mixins";
+@use "mixins" as *;
 
 html, body, figure, blockquote, section {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+}
+li, a{
+    text-decoration: none;
+    list-style-type: none;
+    color: colors.$primary-white;
 }
 
 input:focus, textarea:focus, select:focus{
@@ -15,4 +20,19 @@ input:focus, textarea:focus, select:focus{
 
 input, textarea {
     box-sizing: border-box;
+}
+
+.link {
+    color: colors.$primary-indigo;
+    text-decoration: none;
+    font-size: 1rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &::after {
+        content: ">";
+        margin-left: 0.5rem;
+    }
 }

@@ -1,0 +1,37 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.call-to-action {
+    background-color: $primary-indigo;
+    height: 40px;
+    padding: 0 1.5rem;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    @include tablet {
+        width: auto;
+    }
+
+    &:hover {
+        background-color: $background-graphite;
+        cursor: pointer;
+    }
+
+    &__text{
+        color: $primary-white;
+        margin: 0;
+        font-size: 0.95em;
+    }
+
+    &__icon {
+        height: 1.3rem;
+        position: absolute;
+        left: 0.5rem;
+    }
+}
