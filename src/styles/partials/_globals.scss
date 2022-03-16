@@ -8,6 +8,11 @@ html, body, figure, blockquote, section {
     padding: 0;
     scroll-behavior: smooth;
 }
+li, a{
+    text-decoration: none;
+    list-style-type: none;
+    color: colors.$primary-white;
+}
 
 input:focus, textarea:focus, select:focus{
     outline: none;
