@@ -3,7 +3,7 @@ import './Warehouse.scss';
 const Warehouse = () => {
   return (
     <section className='warehouse'>
-        Warehouse Page
+      Warehouse page
     </section>
   )
 }
