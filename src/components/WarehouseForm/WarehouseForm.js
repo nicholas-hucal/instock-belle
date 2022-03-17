@@ -24,8 +24,8 @@ class WarehouseForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const groupOne = this.state.inputsGroupOne;
-        const groupTwo = this.state.inputsGroupTwo;
+        const groupOne = [...this.state.inputsGroupOne];
+        const groupTwo = [...this.state.inputsGroupTwo];
 
         const first = groupOne.filter(input => input.valid !== true);
         const second = groupTwo.filter(input => input.valid !== true);
