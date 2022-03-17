@@ -4,16 +4,26 @@
 .warehouse {
     &__header{
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding-top: 2rem;
-        padding-left: 1.75rem;
-        padding-right: 1.5rem;
+        padding: 2rem 1.5rem;
+        border-bottom: colors.$secondary-cloud 0.01rem solid;
         &-icons{
-            // width: 10px;
+            padding-top: 1.5vh;
+            width: 6vw;
         }
         &-text{
-            padding-right: 1rem;
+            padding-left: 0.5rem;
+            padding-right: 4.5rem;
+        }
+        &-bg{
+            height: 2rem;
+            width: 2.2rem;
+            border-radius: 50%;
+            background-color: colors.$primary-indigo;
+            background-image: url(../../assets/icons/edit-24px-white.svg);
+            background-repeat: no-repeat;
+            background-size: 1rem;
+            background-position: 3vw;
         }
     }
 }
