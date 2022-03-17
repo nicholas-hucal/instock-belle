@@ -175,7 +175,7 @@ class WarehouseForm extends Component {
                             </section>
                         </div>
                         <section className='warehouse-form__buttons'>
-                            <Button extraClass="warehouse-form__button--cancel" text="cancel" type="cancel" onClick={this.goBack} />
+                            <Button extraClass="warehouse-form__button--cancel" text="Cancel" type="cancel" onClick={this.goBack} />
                             <Button extraClass="warehouse-form__button--submit" text={submitText} />
                         </section>
                     </form>
