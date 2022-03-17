@@ -1,10 +1,10 @@
 import WarehouseForm from '../../components/WarehouseForm/WarehouseForm.js';
 
-const WarehouseAdd = ({history}) => {
+const WarehouseAdd = ({history, match}) => {
     return (
-        <div>
-            <WarehouseForm history={history} title="Add New Warehouse" submitText="+ Add Warehouse" />
-        </div>
+        <section>
+            <WarehouseForm title="Add New Warehouse" submitText="+ Add Warehouse" history={history} match={match}  />
+        </section>
     );
 }
 

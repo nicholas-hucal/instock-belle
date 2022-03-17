@@ -6,7 +6,7 @@
     background-color: $primary-indigo;
     color: $primary-white;
     height: 40px;
-    padding: 0 1.5rem;
+    padding: 0 0.5rem;
     border-radius: 20px;
     border: none;
     display: flex;
@@ -17,6 +17,7 @@
     width: 100%;
     @include tablet {
         width: auto;
+        padding: 0 1.5rem;
     }
 
     &:hover {
