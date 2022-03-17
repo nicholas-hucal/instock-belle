@@ -17,9 +17,9 @@ function App() {
       <section  className="main__content">
       <Switch>
         <Route path="/inventory" component={Inventory} />
+        <Route path="/inventory/add" component={Inventory} />
         <Route path="/inventory/:inventoryId" component={Inventory} />
         <Route path="/inventory/:inventoryId/edit" component={Inventory} />
-        <Route path="/inventory/add" component={Inventory} />
         <Route path="/add" component={WarehouseAdd}/>
         <Route path="/:warehouseId/edit" component={WarehouseEdit} />
         <Route path="/:warehouseId" component={Warehouse} />
