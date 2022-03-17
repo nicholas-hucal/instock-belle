@@ -1,6 +1,59 @@
-@use '../../styles/partials/colors';
-@use '../../styles/partials/mixins';
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
 
 .inventory {
-    
+    padding: 2rem $interior-alignment 0 $interior-alignment;
+
+    &__nav {
+        @include flex-it(nowrap, flex-start, normal, column);
+        border-bottom: 1.5px solid $secondary-cloud;
+        padding-bottom: 1rem;
+
+        @include tablet {
+            @include flex-it(nowrap, space-between, normal, row);
+            border-bottom: none
+        }
+    }
+
+    &__form {
+        @include flex-it(nowrap, flex-start, normal, column);
+        gap: 1.3rem;
+        margin: 1.5rem 0;
+
+        @include tablet {
+            @include flex-it(nowrap, space-between, normal, row);
+            margin: 0;
+        }
+    }
+
+    &__headers {
+        display: none;
+        color: $secondary-slate;
+        background-color: $background-light-grey;
+        text-transform: uppercase;
+        padding: 1rem 0;
+
+        @include tablet {
+            @include flex-it(nowrap, flex-start, normal, row);
+        }
+    }
+
+    &__header {
+        box-sizing: border-box;
+        &--short {
+            width: 18%;
+            padding-left: 1.7rem;
+        }
+
+        &--long {
+            width: 27%;
+        }
+
+        &--action {
+            width: 10%;
+        }
+    }
 }
