@@ -89,6 +89,7 @@ class WarehouseForm extends Component {
     }
 
     goBack = (e) => {
+        e.preventDefault();
         this.props.history.goBack()
     }
 
