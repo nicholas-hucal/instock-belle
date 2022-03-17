@@ -4,6 +4,7 @@ import back from '../../assets/icons/arrow_back-24px.svg';
 import { emailRegex, phoneRegex } from '../../utils/validation.js';
 import axios from 'axios';
 import Input from '../Input/Input';
+import Button from '../Button/Button';
 
 class WarehouseForm extends Component {
 
@@ -148,12 +149,8 @@ class WarehouseForm extends Component {
                         </section>
                     </div>
                     <section className='warehouse-form__buttons'>
-                        <button onClick={this.goBack} className='warehouse-form__button warehouse-form__button--cancel'>
-                            Cancel
-                        </button>
-                        <button type="submit" className='warehouse-form__button warehouse-form__button--submit'>
-                            {submitText}
-                        </button>
+                        <Button extraClass="warehouse-form__button--cancel" text="cancel" type="cancel" onClick={this.goBack}/>
+                        <Button extraClass="warehouse-form__button--submit" text={submitText}/>
                     </section>
                 </form>
             </section>

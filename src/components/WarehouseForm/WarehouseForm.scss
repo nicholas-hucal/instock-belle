@@ -89,26 +89,11 @@
     }
 
     &__button {
-        border-radius: 1.25rem;
-        width: 100%;
-        padding: 0.25rem 1rem;
-        justify-content: space-between;
-
-        @include tablet {
-            width: auto;
-        }
-        
         &--submit {
-            font-weight: bold;
-            border: 1px solid $primary-indigo;
-            background-color: $primary-indigo;
-            color: $primary-white;
             margin-left: 0.5rem;
         }
 
         &--cancel {
-            border: 1px solid $secondary-cloud;
-            background-color: $primary-white;
             margin-right: 0.5rem;
         }
     }
