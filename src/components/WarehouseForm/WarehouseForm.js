@@ -3,6 +3,7 @@ import './WarehouseForm.scss';
 import back from '../../assets/icons/arrow_back-24px.svg';
 import { emailRegex, phoneRegex } from '../../utils/validation.js';
 import axios from 'axios';
+import Input from '../Input/Input';
 
 class WarehouseForm extends Component {
 
@@ -60,7 +61,7 @@ class WarehouseForm extends Component {
 
         if (type === 'text') {
             if (current.length < 3) {
-                error = 'warehouse-form__input--error';
+                error = 'input--error';
             } else {
                 valid = true
             }
@@ -68,7 +69,7 @@ class WarehouseForm extends Component {
         if (type === 'email') {
             const email = current.match(emailRegex);
             if (email === null) {
-                error = 'warehouse-form__input--error';
+                error = 'input--error';
             } else {
                 valid = true
             }
@@ -76,7 +77,7 @@ class WarehouseForm extends Component {
         if (type === 'tel') {
             const email = current.match(phoneRegex);
             if (email === null) {
-                error = 'warehouse-form__input--error';
+                error = 'input--error';
             } else {
                 valid = true
             }
@@ -116,31 +117,33 @@ class WarehouseForm extends Component {
                         <section className='warehouse-form__section warehouse-form__section--first'>
                             <h2 className='warehouse-form__subheading'>Warehouse Details</h2>
                             {inputs.slice(0, half).map((input, idx) => (
-                                <label key={`groupOne${idx}`} className='warehouse-form__label'>
-                                    {input.label}
-                                    <input
-                                        className={`warehouse-form__input ${input.error}`}
-                                        value={input.value}
-                                        onChange={(e) => this.handleInputChange(idx, e)}
-                                        type={input.type}
-                                        name={input.name}
-                                        placeholder={input.label} />
-                                </label>
+                                <Input 
+                                    key={`inputs${idx}`} 
+                                    error={input.error}
+                                    value={input.value}
+                                    handleInputChange={this.handleInputChange}
+                                    type={input.type}
+                                    name={input.name}
+                                    placeholder={input.label}
+                                    index={idx}
+                                    label={input.label}
+                                />
                             ))}
                         </section>
                         <section className='warehouse-form__section'>
                             <h2 className='warehouse-form__subheading'>Contact Details</h2>
                             {inputs.slice(-half).map((input, idx) => (
-                                <label key={`groupTwo${idx}`} className='warehouse-form__label'>
-                                    {input.label}
-                                    <input
-                                        className={`warehouse-form__input ${input.error}`}
-                                        value={input.value}
-                                        onChange={(e) => this.handleInputChange(idx + half, e)}
-                                        type={input.type}
-                                        name={input.name}
-                                        placeholder={input.label} />
-                                </label>
+                                <Input 
+                                    key={`inputs${idx + half}`} 
+                                    error={input.error}
+                                    value={input.value}
+                                    handleInputChange={this.handleInputChange}
+                                    type={input.type}
+                                    name={input.name}
+                                    placeholder={input.label}
+                                    index={idx + half}
+                                    label={input.label}
+                                />
                             ))}
                         </section>
                     </div>
