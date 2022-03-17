@@ -97,4 +97,9 @@
             margin-right: 0.5rem;
         }
     }
+
+    &__error {
+        color: $supporting-red;
+        padding: 2rem;
+    }
 }

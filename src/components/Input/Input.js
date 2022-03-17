@@ -1,6 +1,7 @@
 import './Input.scss';
 
-const Input = ({index, label, error, value, type, name, handleInputChange }) => {
+const Input = ({index, input, handleInputChange }) => {
+    const { label, error, value, type, name} = input;
     return (
         <label className='input'>
             {label}
