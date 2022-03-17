@@ -30,7 +30,7 @@ class WarehouseForm extends Component {
         const first = groupOne.filter(input => input.valid !== true);
         const second = groupTwo.filter(input => input.valid !== true);
 
-        if (first.length !== 0 && second.length !== 0) {
+        if (first.length !== 0 || second.length !== 0) {
             groupOne.forEach((field, idx) => {
                 const e = {
                     target: {
@@ -52,7 +52,6 @@ class WarehouseForm extends Component {
                 this.handleInputChange(idx, e, 'Two')
             })
         } else {
-
             const data = {};
             groupOne.forEach(field => {
                 data[field.name] =  field.value;
