@@ -1,0 +1,20 @@
+@use '../../styles/partials/colors' as *;
+
+.input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    font-weight: bold;
+
+    &__field {
+        border-radius: 1.25rem;
+        margin-top: 0.25rem;
+        border: 1px solid $secondary-cloud;
+        padding: 0.5rem 1rem;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    &--error {
+        border: 2px solid $supporting-red;
+    }
+}

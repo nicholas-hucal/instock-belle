@@ -44,6 +44,10 @@
         padding: 0.5rem 1rem;
         box-sizing: border-box;
         width: 100%;
+
+        &--error {
+            border: 1px solid $supporting-red;
+        }
     }
 
     &__body {
