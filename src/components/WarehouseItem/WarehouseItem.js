@@ -8,14 +8,14 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import { Link } from 'react-router-dom';
 
-function WarehouseItem ({ id, name, address, contactName, contactPhone, contactEmail}) {
+function WarehouseItem ({ id, name, address, contactName, contactPhone, contactEmail, selectWarehouse}) {
     return (
         <div className="warehouses__item">
             <div className="warehouses__text-box">
                 <div className="warehouses__column">
                     <div className="warehouses__content warehouses__content--short">
                         <h3 className="warehouses__mobile-header">Warehouse</h3>
-                        <Link to={`/warehouse/${id}`} className="link">{name}</Link>
+                        <Link to={`/${id}`} className="link">{name}</Link>
                     </div>
                     <div className="warehouses__content warehouses__content--long">
                         <h3 className="warehouses__mobile-header">Address</h3>
@@ -35,7 +35,7 @@ function WarehouseItem ({ id, name, address, contactName, contactPhone, contactE
                 </div>
             </div>
             <div className="warehouses__action">
-                <img src={deleteIcon} alt='delete icon' className="warehouses__icon"/>
+                <img src={deleteIcon} alt='delete icon' className="warehouses__icon" onClick={() => selectWarehouse(id)}/>
                 <Link to={`/${id}/edit`} className="warehouses__link"><img src={editIcon} alt='edit icon' className="warehouses__icon"/></Link>
             </div>
         </div>
