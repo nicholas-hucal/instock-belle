@@ -60,18 +60,18 @@ class Warehouse extends React.Component{
         <Link to="/" className="warehouse__header-bg"></Link>
       </section>
       <section className="warehouse__info">
-        <h4 className="warehouse__info-headers">Warehouse Address</h4>
-        <p className="warehouse__info-address">{this.state.selectedWarehouse.address}, {this.state.selectedWarehouse.city}, {this.state.selectedWarehouse.country}</p>
-        <div className="header__info-contact">
+        <h4 className="warehouse__info-headers">Warehouse Address:</h4>
+        <p className="warehouse__info-text">{this.state.selectedWarehouse.address}, {this.state.selectedWarehouse.city}, {this.state.selectedWarehouse.country}</p>
+        <div className="warehouse__info-contact">
           <div>
-            <h5 className="warehouse__info-headers">CONTACT NAME</h5>
-            <p className="warehouse__info-name">{this.state.selectedWarehouse.contact.name}</p>
-            <p className="warehouse__info-name">{this.state.selectedWarehouse.contact.position}</p>
+            <h4 className="warehouse__info-headers">CONTACT NAME:</h4>
+            <p className="warehouse__info-text">{this.state.selectedWarehouse.contact.name}</p>
+            <p className="warehouse__info-text">{this.state.selectedWarehouse.contact.position}</p>
           </div>
           <div>
-            <h5 className="warehouse__info-headers">CONTACT INFORMATION</h5>
-            <p className="warehouse__info-phone">{this.state.selectedWarehouse.contact.phone}</p>
-            <p className="warehouse__info-email">{this.state.selectedWarehouse.contact.email}</p>
+            <h4 className="warehouse__info-headers">CONTACT INFORMATION:</h4>
+            <p className="warehouse__info-text">{this.state.selectedWarehouse.contact.phone}</p>
+            <p className="warehouse__info-text">{this.state.selectedWarehouse.contact.email}</p>
           </div>
         </div>
       </section>
