@@ -19,7 +19,7 @@ function App() {
         <Route path="/inventory/:inventoryId" component={Inventory} />
         <Route path="/inventory/:inventoryId/edit" component={Inventory} />
         <Route path="/inventory/add" component={Inventory} />
-        <Route path="/add" render={routerProps => <WarehouseAdd {...routerProps} />} />
+        <Route path="/add" component={WarehouseAdd}/>
         <Route path="/:warehouseId" component={Warehouse} />
         <Route path="/:warehouseId/edit" component={Warehouse} />
         <Route path="/" exact component={Warehouses} />
