@@ -2,20 +2,10 @@ import React, { Component } from 'react';
 import './WarehouseForm.scss';
 import back from '../../assets/icons/arrow_back-24px.svg';
 import { emailRegex, phoneRegex } from '../../utils/validation.js';
-import { v4 as uuidv4 } from 'uuid';
 
 class WarehouseForm extends Component {
 
     state = {
-        isValid: 0,
-        name: '',
-        address: '',
-        city: '',
-        country: '',
-        contactName: '',
-        contactPosition: '',
-        contactPhone: '',
-        contactEmail: '',
         inputsGroupOne: [
             { label: 'Warehouse Name', name: 'name', value: '', type: 'text', error: '', valid: false },
             { label: 'Street Address', name: 'address', value: '', type: 'text', error: '', valid: false },
@@ -39,12 +29,6 @@ class WarehouseForm extends Component {
         if (first.length !== 0 && second.length !== 0) {
             alert('please fill out all fields');
         }
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
     }
 
     handleInputChange = (idx, event, group) => {
@@ -93,42 +77,12 @@ class WarehouseForm extends Component {
         });
     }
 
-
     handleCancel = () => {
         this.props.router.goBack()
     }
 
     goBack = (e) => {
         this.props.router.goBack()
-    }
-
-    isFieldValid = (field, type, submit) => {
-        const current = this.state[field];
-        if (current !== '') {
-            if (type === 'text') {
-                if (current.length < 3) {
-                    return 'warehouse-form__input--error';
-                } else {
-                    return '';
-                }
-            }
-            if (type === 'email') {
-                const email = current.match(emailRegex);
-                if (email === null) {
-                    return 'warehouse-form__input--error';
-                } else {
-                    return '';
-                }
-            }
-            if (type === 'phone') {
-                const email = current.match(phoneRegex);
-                if (email === null) {
-                    return 'warehouse-form__input--error';
-                } else {
-                    return '';
-                }
-            }
-        }
     }
 
     render() {
@@ -148,10 +102,9 @@ class WarehouseForm extends Component {
                         <section className='warehouse-form__section warehouse-form__section--first'>
                             <h2 className='warehouse-form__subheading'>Warehouse Details</h2>
                             {this.state.inputsGroupOne.map((input, idx) => (
-                                <label className='warehouse-form__label'>
+                                <label key={`groupOne${idx}`} className='warehouse-form__label'>
                                     {input.label}
                                     <input
-                                        key={idx}
                                         className={`warehouse-form__input ${input.error}`}
                                         value={input.value}
                                         onChange={(e) => this.handleInputChange(idx, e, 'One')}
@@ -164,10 +117,9 @@ class WarehouseForm extends Component {
                         <section className='warehouse-form__section'>
                             <h2 className='warehouse-form__subheading'>Contact Details</h2>
                             {this.state.inputsGroupTwo.map((input, idx) => (
-                                <label className='warehouse-form__label'>
+                                <label key={`groupTwo${idx}`} className='warehouse-form__label'>
                                     {input.label}
                                     <input
-                                        key={idx}
                                         className={`warehouse-form__input ${input.error}`}
                                         value={input.value}
                                         onChange={(e) => this.handleInputChange(idx, e, 'Two')}
