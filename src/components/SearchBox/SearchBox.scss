@@ -1,9 +1,19 @@
 @use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
 
 .search-box {
     position: relative;
     padding: 0 1rem;
-    width: 14rem;
+    display: none;    
+    
+    @include tablet {
+        display: block;
+        width: 10rem;
+    }
+
+    @include desktop {
+        width: 16rem;
+    }
     
     &__input {
         position: absolute;
