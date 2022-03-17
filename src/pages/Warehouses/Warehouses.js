@@ -4,10 +4,23 @@ import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import Button from "../../components/Button/Button";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { Component } from 'react';
+import WarehouseModal from '../../components/WarehouseModal/WarehouseModal';
 
 class Warehouses extends Component {
 
-    state = {displayedWarehouses: []};
+    state = {
+        displayedWarehouses: [],
+        displayModal: false,
+    };
+
+    showModal = () => {
+        this.setState({ displayModal: true });
+    };
+
+    hideModal = () => {
+        console.log("apples");
+        this.setState({ displayModal: false });
+    };
 
     componentDidMount() {
         this.updateList();
@@ -44,6 +57,9 @@ class Warehouses extends Component {
                 <div className='warehouses__list'>
                     <WarehouseList displayList={this.state.displayedWarehouses} />
                 </div>
+                {this.state.displayModal && 
+                    <WarehouseModal hideModal={this.hideModal} />
+                }
             </div>
         );
     };
