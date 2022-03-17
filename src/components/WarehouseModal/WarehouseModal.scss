@@ -48,6 +48,7 @@
     font-weight: 100;
     transition: .1s;
     padding: 1rem 0;
+    height: fit-content;
     &:hover {
         color: $supporting-red;;
         text-decoration: none;
@@ -61,10 +62,12 @@
 }
 
 .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-it (nowrap, center, center, row);
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
     width: 100%;
     height: 100%;
@@ -74,10 +77,9 @@
         align-items: flex-start;
     }
     &__list {
+        @include flex-it (nowrap, flex-start, stretch, column);
         background-color: $background-light-grey;
         list-style-type: none;
-        display: flex;
-        flex-direction: column;
         padding: 1rem;
         width: 16rem;
         height: 32rem;
@@ -90,10 +92,8 @@
             width: 674px;
         }
         &-close {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            height: 1rem;
+            @include flex-it (nowrap, flex-end, center, row);
+            height: 2rem;
             width: 100%
         }
         &-content {
@@ -103,9 +103,8 @@
             }
         }
         &-buttons {
+            @include flex-it (nowrap, space-between, stretch, row);
             width: 100%;
-            display: flex;
-            justify-content: space-between;
             flex-direction: row-reverse;
             @include tablet {
                 width: 90%;
@@ -118,6 +117,7 @@
         font-size: 1.5rem;
         padding-top: 2rem;
         padding-bottom: 1rem;
+        color: $primary-black;
         @include tablet {
             font-size: 2.125rem;
             padding: 0 2rem;
@@ -126,6 +126,7 @@
     &__text {
         line-height: 1.5rem;
         font-size: .875rem;
+        color: $primary-black;
         @include tablet {
             font-size: 1rem;
             padding: 1rem 2rem;

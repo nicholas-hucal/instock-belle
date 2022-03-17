@@ -1,39 +1,33 @@
 import React from "react";
 import "./InventoryModal.scss";
 
-export default function InventoryModal() {
-
-    const modal = document.querySelector("#modal");
-
-    const span = document.querySelector(".close");
-
-    span.onclick = () => {
-        modal.style.display = "none";
-    };
+export default function InventoryModal(props) {
 
     return (
-        <section id="modal" class="modal">
-            <ul class="modal__list">
-                <li class="modal__list-close">
-                    <span class="close">&times;</span>
-                </li>
-                <li class="modal__list-content">
-                    <h2 class="modal__title">
-                        Delete VARIABLE inventory item?
-                    </h2>
-                    <p class="modal__text">
-                        Please confirm that you'd like to delete the VARIABLE from the inventory list. You won't be able to undo this action.
-                    </p>
-                </li>
-                <li class="modal__list-buttons">
-                    <button class="button__delete">
-                        Delete
-                    </button>
-                    <button class="button__cancel">
-                        Cancel
-                    </button>
-                </li>
-            </ul>
-        </section>
+        <>
+            <section className="modal">
+                <ul className="modal__list">
+                    <li className="modal__list-close">
+                        <span className="close" onClick={props.hideModal}>&times;</span>
+                    </li>
+                    <li className="modal__list-content">
+                        <h2 className="modal__title">
+                            Delete VARIABLE inventory item?
+                        </h2>
+                        <p className="modal__text">
+                            Please confirm that you'd like to delete the VARIABLE from the inventory list. You won't be able to undo this action.
+                        </p>
+                    </li>
+                    <li className="modal__list-buttons">
+                        <button className="button__delete">
+                            Delete
+                        </button>
+                        <button className="button__cancel" onClick={props.hideModal}>
+                            Cancel
+                        </button>
+                    </li>
+                </ul>
+            </section>
+        </>
     );
 }

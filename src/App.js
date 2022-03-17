@@ -14,14 +14,14 @@ function App() {
     <main className="main">
       <section  className="main__content">
       <Switch>
-        <Route path="/" exact component={Warehouses} />
-        <Route path="/:warehouseId" component={Warehouse} />
-        <Route path="/:warehouseId/edit" component={Warehouse} />
-        <Route path="/add" component={Warehouse} />
         <Route path="/inventory" component={Inventory} />
         <Route path="/inventory/:inventoryId" component={Inventory} />
         <Route path="/inventory/:inventoryId/edit" component={Inventory} />
         <Route path="/inventory/add" component={Inventory} />
+        <Route path="/:warehouseId" component={Warehouse} />
+        <Route path="/:warehouseId/edit" component={Warehouse} />
+        <Route path="/add" component={Warehouse} />
+        <Route path="/" exact component={Warehouses} />
         <Route component={NotFound} />
       </Switch>
       </section>

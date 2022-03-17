@@ -13,7 +13,7 @@ class Header extends React.Component {
                    <img src={Logo}  alt="logo" />
                 </Link>
                 <div className="header__list">
-                    <NavLink to="/"  className="header__list-item" activeClassName="header__list-item--active">Warehouse</NavLink>
+                    <NavLink to="/" exact className="header__list-item" activeClassName="header__list-item--active">Warehouse</NavLink>
                     <NavLink to="/inventory"  className="header__list-item" activeClassName="header__list-item--active">Inventory</NavLink>
                 </div>
             </section>
