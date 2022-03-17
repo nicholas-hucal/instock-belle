@@ -77,15 +77,14 @@ class WarehouseForm extends Component {
             }
         }
 
-        this.state.inputs[idx] = {
-            ...this.state.inputs[idx],
-            value: target.value,
-            error,
-            valid
-        }
+        let currentState = [...this.state.inputs];
+
+        currentState[idx].value = target.value;
+        currentState[idx].error = error;
+        currentState[idx].valid = valid;
 
         this.setState({
-            inputs: [...this.state.inputs]
+            inputs: currentState
         });
     }
 
@@ -130,7 +129,7 @@ class WarehouseForm extends Component {
     }
 
     render() {
-        const { title, warehouse, submitText } = this.props;
+        const { title, submitText } = this.props;
         const { inputs, requestError } = this.state;
         const half = Math.ceil(inputs.length / 2);
 
