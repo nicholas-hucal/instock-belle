@@ -7,13 +7,11 @@ import axios from 'axios';
 class WarehouseForm extends Component {
 
     state = {
-        inputsGroupOne: [
+        inputs: [
             { label: 'Warehouse Name', name: 'name', value: '', type: 'text', error: '', valid: false },
             { label: 'Street Address', name: 'address', value: '', type: 'text', error: '', valid: false },
             { label: 'City', name: 'city', value: '', type: 'text', error: '', valid: false },
-            { label: 'Country', name: 'country', value: '', type: 'text', error: '', valid: false }
-        ],
-        inputsGroupTwo: [
+            { label: 'Country', name: 'country', value: '', type: 'text', error: '', valid: false },
             { label: 'Contact Name', name: 'contactName', value: '', type: 'text', error: '', valid: false },
             { label: 'Position', name: 'contactPosition', value: '', type: 'text', error: '', valid: false },
             { label: 'Phone Number', name: 'contactPhone', value: '', type: 'tel', error: '', valid: false },
@@ -23,15 +21,11 @@ class WarehouseForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const inputs = [...this.state.inputs];
+        const check = inputs.filter(input => input.valid !== true);
 
-        const groupOne = [...this.state.inputsGroupOne];
-        const groupTwo = [...this.state.inputsGroupTwo];
-
-        const first = groupOne.filter(input => input.valid !== true);
-        const second = groupTwo.filter(input => input.valid !== true);
-
-        if (first.length !== 0 || second.length !== 0) {
-            groupOne.forEach((field, idx) => {
+        if (check.length !== 0 ) {
+            inputs.forEach((field, idx) => {
                 const e = {
                     target: {
                         value: field.value,
@@ -39,24 +33,11 @@ class WarehouseForm extends Component {
                         type: field.type
                     }
                 }
-                this.handleInputChange(idx, e, 'One')
-            })
-            groupTwo.forEach((field, idx) => {
-                const e = {
-                    target: {
-                        value: field.value,
-                        name: field.name,
-                        type: field.type
-                    }
-                }
-                this.handleInputChange(idx, e, 'Two')
+                this.handleInputChange(idx, e)
             })
         } else {
             const data = {};
-            groupOne.forEach(field => {
-                data[field.name] =  field.value;
-            })
-            groupTwo.forEach(field => {
+            inputs.forEach(field => {
                 data[field.name] =  field.value;
             })
             axios
@@ -70,10 +51,9 @@ class WarehouseForm extends Component {
         }
     }
 
-    handleInputChange = (idx, event, group) => {
+    handleInputChange = (idx, event) => {
         const target = event.target;
         const current = target.value;
-        const name = target.name;
         const type = target.type;
         let error = '';
         let valid = false;
@@ -102,17 +82,15 @@ class WarehouseForm extends Component {
             }
         }
 
-        const groupName = `inputsGroup${group}`;
-
-        this.state[groupName][idx] = {
-            ...this.state[groupName][idx],
+        this.state.inputs[idx] = {
+            ...this.state.inputs[idx],
             value: target.value,
             error,
             valid
         }
 
         this.setState({
-            [groupName]: [...this.state[groupName]]
+            inputs: [...this.state.inputs]
         });
     }
 
@@ -121,8 +99,10 @@ class WarehouseForm extends Component {
     }
 
     render() {
-
         const { title, warehouse, submitText } = this.props;
+        const { inputs } = this.state;
+        const half = Math.ceil(inputs.length / 2);    
+
         return (
             <section className='warehouse-form'>
                 <header className='warehouse-form__header'>
@@ -135,13 +115,13 @@ class WarehouseForm extends Component {
                     <div className='warehouse-form__body'>
                         <section className='warehouse-form__section warehouse-form__section--first'>
                             <h2 className='warehouse-form__subheading'>Warehouse Details</h2>
-                            {this.state.inputsGroupOne.map((input, idx) => (
+                            {inputs.slice(0, half).map((input, idx) => (
                                 <label key={`groupOne${idx}`} className='warehouse-form__label'>
                                     {input.label}
                                     <input
                                         className={`warehouse-form__input ${input.error}`}
                                         value={input.value}
-                                        onChange={(e) => this.handleInputChange(idx, e, 'One')}
+                                        onChange={(e) => this.handleInputChange(idx, e)}
                                         type={input.type}
                                         name={input.name}
                                         placeholder={input.label} />
@@ -150,13 +130,13 @@ class WarehouseForm extends Component {
                         </section>
                         <section className='warehouse-form__section'>
                             <h2 className='warehouse-form__subheading'>Contact Details</h2>
-                            {this.state.inputsGroupTwo.map((input, idx) => (
+                            {inputs.slice(-half).map((input, idx) => (
                                 <label key={`groupTwo${idx}`} className='warehouse-form__label'>
                                     {input.label}
                                     <input
                                         className={`warehouse-form__input ${input.error}`}
                                         value={input.value}
-                                        onChange={(e) => this.handleInputChange(idx, e, 'Two')}
+                                        onChange={(e) => this.handleInputChange(idx + half, e)}
                                         type={input.type}
                                         name={input.name}
                                         placeholder={input.label} />
