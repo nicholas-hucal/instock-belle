@@ -1,0 +1,25 @@
+@use '../../styles/partials/colors' as *;
+
+.search-box {
+    position: relative;
+    padding: 0 1rem;
+    width: 14rem;
+    
+    &__input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 0 1rem;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        border-radius: 1.25rem;
+        border: 1px solid $secondary-cloud;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+    }
+}
