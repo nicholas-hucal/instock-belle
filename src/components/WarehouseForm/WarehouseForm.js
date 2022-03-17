@@ -5,6 +5,7 @@ import { emailRegex, phoneRegex } from '../../utils/validation.js';
 import axios from 'axios';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
+import api from '../../utils/api.js';
 
 class WarehouseForm extends Component {
 
@@ -35,14 +36,26 @@ class WarehouseForm extends Component {
             inputs.forEach(field => {
                 data[field.name] = field.value;
             })
-            axios
-                .post(`http://localhost:8080/warehouse/${this.state.currentWarehouse}`, data)
-                .then(response => {
-                    this.props.history.push(`/${response.data.id}`);
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+            if (this.state.currentWarehouse) {
+                api
+                    .editWarehouse(data, this.state.currentWarehouse)
+                    .then(response => {
+                        this.props.history.push(`/${response.data.id}`);
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            } else {
+                api
+                    .addWarehouse(data)
+                    .then(response => {
+                        this.props.history.push(`/${response.data.id}`);
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            }
+                
         }
     }
 
@@ -113,8 +126,8 @@ class WarehouseForm extends Component {
     componentDidMount() {
         const id = this.props.match.params.warehouseId;
         if (id) {
-            axios
-                .get(`http://localhost:8080/warehouse/${id}`)
+            api
+                .getWarehouseById(id)
                 .then(response => {
                     this.formatResponseObject(response.data);
                 })
