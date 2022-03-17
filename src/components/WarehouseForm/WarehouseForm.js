@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './WarehouseForm.scss';
 import back from '../../assets/icons/arrow_back-24px.svg';
 import { emailRegex, phoneRegex } from '../../utils/validation.js';
+import axios from 'axios';
 
 class WarehouseForm extends Component {
 
@@ -23,11 +24,50 @@ class WarehouseForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const first = this.state.inputsGroupOne.filter(input => input.valid !== true);
-        const second = this.state.inputsGroupTwo.filter(input => input.valid !== true);
+        const groupOne = this.state.inputsGroupOne;
+        const groupTwo = this.state.inputsGroupTwo;
+
+        const first = groupOne.filter(input => input.valid !== true);
+        const second = groupTwo.filter(input => input.valid !== true);
 
         if (first.length !== 0 && second.length !== 0) {
-            alert('please fill out all fields');
+            groupOne.forEach((field, idx) => {
+                const e = {
+                    target: {
+                        value: field.value,
+                        name: field.name,
+                        type: field.type
+                    }
+                }
+                this.handleInputChange(idx, e, 'One')
+            })
+            groupTwo.forEach((field, idx) => {
+                const e = {
+                    target: {
+                        value: field.value,
+                        name: field.name,
+                        type: field.type
+                    }
+                }
+                this.handleInputChange(idx, e, 'Two')
+            })
+        } else {
+
+            const data = {};
+            groupOne.forEach(field => {
+                data[field.name] =  field.value;
+            })
+            groupTwo.forEach(field => {
+                data[field.name] =  field.value;
+            })
+            axios
+                .post('http://localhost:8080/warehouse', data)
+                .then(response =>{
+                    this.props.history.push(`/${response.data.id}`);
+                })
+                .catch(err => {
+                    console.log(err)
+                })
         }
     }
 
@@ -77,18 +117,13 @@ class WarehouseForm extends Component {
         });
     }
 
-    handleCancel = () => {
-        this.props.router.goBack()
-    }
-
     goBack = (e) => {
-        this.props.router.goBack()
+        this.props.history.goBack()
     }
 
     render() {
 
         const { title, warehouse, submitText } = this.props;
-
         return (
             <section className='warehouse-form'>
                 <header className='warehouse-form__header'>
@@ -131,7 +166,7 @@ class WarehouseForm extends Component {
                         </section>
                     </div>
                     <section className='warehouse-form__buttons'>
-                        <button onClick={this.handleCancel} className='warehouse-form__button warehouse-form__button--cancel'>
+                        <button onClick={this.goBack} className='warehouse-form__button warehouse-form__button--cancel'>
                             Cancel
                         </button>
                         <button type="submit" className='warehouse-form__button warehouse-form__button--submit'>

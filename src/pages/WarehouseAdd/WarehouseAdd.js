@@ -1,9 +1,9 @@
 import WarehouseForm from '../../components/WarehouseForm/WarehouseForm.js';
 
-const WarehouseAdd = () => {
+const WarehouseAdd = ({history}) => {
     return (
         <div>
-            <WarehouseForm title="Add New Warehouse" submitText="+ Add Warehouse" />
+            <WarehouseForm history={history} title="Add New Warehouse" submitText="+ Add Warehouse" />
         </div>
     );
 }
