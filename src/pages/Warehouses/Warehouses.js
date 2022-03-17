@@ -56,11 +56,11 @@ class Warehouses extends Component {
 
     doSearch = (event) => {
         const search = event.target.value;
-        
         api
             .doSearch({search: search, type: 'warehouse'})
             .then(response => {
                 console.log(response.data)
+                this.setState({displayedWarehouses: response.data});
             })
             .catch(error => {
                 console.log(error)
