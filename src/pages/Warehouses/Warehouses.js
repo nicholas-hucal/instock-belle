@@ -1,5 +1,4 @@
 import './Warehouses.scss';
-import axios from 'axios';
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import Button from "../../components/Button/Button";
 import SearchBox from "../../components/SearchBox/SearchBox";
@@ -31,8 +30,8 @@ class Warehouses extends Component {
     };
 
     updateList = () => {
-        axios
-            .get("http://localhost:8080/warehouse")
+        api
+            .getAllWarehouses()
             .then((response) => {
                 this.setState({displayedWarehouses: response.data});
             })
@@ -42,8 +41,8 @@ class Warehouses extends Component {
     };
 
     deleteOne = () => {
-        axios
-            .delete(`http://localhost:8080/${this.state.clickedWarehouseId}`)
+        api
+            .deleteWarehouseById(this.state.clickedWarehouseId)
             .then(() => {
                 this.updateList();
                 this.hideModal();
