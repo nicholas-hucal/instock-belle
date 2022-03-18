@@ -18,8 +18,6 @@ class InventoryForm extends Component {
         const inputs = [...this.state.inputs];
         const check = inputs.filter(input => input.valid !== true);
 
-        console.log("uptodatefile")
-
         if (check.length !== 0) {
             inputs.forEach((field, idx) => {
                 const e = {
@@ -145,9 +143,11 @@ class InventoryForm extends Component {
             .then(response => {
                 let list = response.data.map(warehouse => warehouse.name);
                 this.setState({warehouseList: list});
-                let currentState = [...this.state.inputs];
-                currentState[5].value = list[0];
-                this.setState({inputs: currentState});
+                if (!id) {
+                    let currentState = [...this.state.inputs];
+                    currentState[5].value = list[0];
+                    this.setState({inputs: currentState});
+                }
             })
             .catch(err => {
                 console.log(err)

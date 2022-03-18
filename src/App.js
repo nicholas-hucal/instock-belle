@@ -20,8 +20,8 @@ function App() {
       <Switch>
         <Route path="/inventory" exact component={Inventory} />
         <Route path="/inventory/add" exact component={InventoryAdd} />
-        <Route path="/inventory/:inventoryId" component={Inventory} />
         <Route path="/inventory/:inventoryId/edit" component={InventoryEdit} />
+        <Route path="/inventory/:inventoryId" component={Inventory} />
         <Route path="/add" component={WarehouseAdd}/>
         <Route path="/:warehouseId/edit" component={WarehouseEdit} />
         <Route path="/:warehouseId" component={Warehouse} />
