@@ -1,0 +1,137 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.inventory-form {
+
+    background-color: $primary-white;
+
+    &__header {
+        display: flex;
+        align-items: baseline;
+        padding: 0 1rem;
+        @include tablet {
+            border-bottom: 1px solid $secondary-cloud;
+            padding: 0 2rem;
+        }
+    }
+
+    &__back-btn {
+        border: none;
+        background-color: $primary-white;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__heading {
+        padding: 2rem 1rem;
+    }
+
+    &__subheading {
+        margin-bottom: 2rem;
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    &__field {
+        border-radius: 1.25rem;
+        margin-top: 0.25rem;
+        border: 1px solid $secondary-cloud;
+        padding: 0.5rem 1rem;
+        box-sizing: border-box;
+        width: 100%;
+        font-family: 'Titillium Web';
+
+        &::placeholder {
+            color: black;
+            opacity: 1;
+            font-family: 'Titillium Web';
+        }
+
+        &--textarea {
+            height: 7rem;
+            resize: none;
+        }
+
+        &--error {
+            border: 1px solid $supporting-red;
+            outline: 1px solid $supporting-red;
+        }
+    }
+
+    &__stock {
+        font-size: 0.85rem;
+        color: grey;
+        display: inline-block;
+        margin: 0 1rem 0 0.2rem;
+
+        &--selected {
+            color: black;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__section {
+        border-top: 1px solid $secondary-cloud;
+        padding: 1rem;
+        flex: 1;
+
+        @include tablet {
+            padding: 0 2rem;
+            margin: 2rem 0;
+            border: none;
+        }
+
+        &--first {
+            @include tablet {
+                border-right: 1px solid $secondary-cloud;
+            }
+        }
+    }
+
+    &__buttons {
+        padding: 1rem;
+        background-color: $background-light-grey;
+        display: flex;
+        flex-direction: row;
+        
+        @include tablet {
+            justify-content: flex-end;
+            padding: 1rem 2rem;
+        }
+    }
+
+    &__button {
+        &--submit {
+            margin-left: 0.5rem;
+        }
+
+        &--cancel {
+            margin-right: 0.5rem;
+        }
+    }
+
+    &__error {
+        color: $supporting-red;
+        padding: 2rem;
+    }
+}
