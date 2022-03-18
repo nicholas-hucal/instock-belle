@@ -3,7 +3,8 @@ import axios from 'axios';
 import Button from '../../components/Button/Button';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import { Component } from 'react';
-import InventoryList from '../../components/InventoryList/InventoryList'
+import InventoryList from '../../components/InventoryList/InventoryList';
+import sortLogo from '../../assets/icons/sort-24px.svg';
 
 
 export default class Inventory extends Component {
@@ -13,13 +14,12 @@ export default class Inventory extends Component {
   componentDidMount() {
     this.updateList();
   };
-  
-  //*Figure out a way to add warehouse ID to get request.
 
   updateList = () => {
     axios
       .get("http://localhost:8080/inventory")
       .then((response) => {
+        console.log(response.data)
         this.setState({ displayedInventory: response.data });
       })
       .catch((err) => {
@@ -27,24 +27,55 @@ export default class Inventory extends Component {
       });
   };
 
+  // doSearch = (event) => {
+  //   const search = event.target.value;
+  //   api
+  //     .doSearch({ search: search, type: 'inventory' })
+  //     .then(response => {
+  //       console.log(response.data)
+  //       this.setState({ displayedInventory: response.data });
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     })
+  // };
+
   render = () => {
     return (
-      <div className='Inventory'>
-        <div className='Inventory__nav'>
+      <div className='inventory'>
+        <div className='inventory__nav'>
           <h1>Inventory</h1>
-          <div className='Inventory__form'>
-            <SearchBox />
+          <div className='inventory__form'>
+            <SearchBox doSearch={this.doSearch} />
             <Button text="+ Add New Item" />
           </div>
         </div>
-        <div className="Inventory__headers">
-          <h3 className="Inventory__header Inventory__header--short">Warehouse</h3>
-          <h3 className="Inventory__header Inventory__header--long">Address</h3>
-          <h3 className="Inventory__header Inventory__header--short">Contact Name</h3>
-          <h3 className="Inventory__header Inventory__header--long">Contact Information</h3>
-          <h3 className="Inventory__header Inventory__header--action">Actions</h3>
+        <div className="inventory__headers">
+          <div className='inventory__header--long'>
+            <h3 className="inventory__header">Inventory Item</h3>
+            <img src={sortLogo} alt="sorting logo" />
+          </div>
+          <div className='inventory__header--mid'>
+            <h3 className="inventory__header">Category</h3>
+            <img src={sortLogo} alt="sorting logo" />
+          </div>
+          <div className='inventory__header--short'>
+            <h3 className="inventory__header">Status</h3>
+            <img src={sortLogo} alt="sorting logo" />
+          </div>
+          <div className='inventory__header--shorter'>
+            <h3 className="inventory__header">Qty</h3>
+            <img src={sortLogo} alt="sorting logo" />
+          </div>
+          <div className='inventory__header--mid'>
+            <h3 className="inventory__header">Warehouse</h3>
+            <img src={sortLogo} alt="sorting logo" />
+          </div>
+          <div className='inventory__header--action'>
+            <h3 className="inventory__header">Actions</h3>
+          </div>
         </div>
-        <div className='Inventory__list'>
+        <div className='inventory__list'>
           <InventoryList displayList={this.state.displayedInventory} />
         </div>
       </div>

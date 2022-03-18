@@ -6,6 +6,9 @@
 
 .inventory {
     padding: 2rem $interior-alignment 0 $interior-alignment;
+    @include tablet {
+        padding: 0;
+    }
 
     &__nav {
         @include flex-it(nowrap, flex-start, normal, column);
@@ -19,12 +22,12 @@
     }
 
     &__form {
-        @include flex-it(nowrap, flex-start, normal, column);
+        @include flex-it(nowrap, flex-start, center, column);
         gap: 1.3rem;
         margin: 1.5rem 0;
 
         @include tablet {
-            @include flex-it(nowrap, space-between, normal, row);
+            @include flex-it(nowrap, space-between, center, row);
             margin: 0;
         }
     }
@@ -43,17 +46,27 @@
 
     &__header {
         box-sizing: border-box;
+        padding-right: .4rem;
         &--short {
-            width: 18%;
-            padding-left: 1.7rem;
+            @include flex-it (nowrap, flex-start, center, row);
+            width: 16%;
         }
 
         &--long {
-            width: 27%;
+            @include flex-it (nowrap, flex-start, center, row);
+            width: 30%;
+            padding-left: 1.7rem;
+        }
+
+        &--mid {
+            @include flex-it (nowrap, flex-start, center, row);
+            width: 25%;
         }
 
         &--action {
+            @include flex-it (nowrap, flex-start, center, row);
             width: 10%;
+
         }
     }
 }
