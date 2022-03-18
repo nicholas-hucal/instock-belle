@@ -2,9 +2,10 @@ import './Warehouses.scss';
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import Button from "../../components/Button/Button";
 import SearchBox from "../../components/SearchBox/SearchBox";
-import { Component } from 'react';
 import WarehouseModal from '../../components/WarehouseModal/WarehouseModal';
+import sortIcon from '../../assets/icons/sort-24px.svg';
 import api from '../../utils/api';
+import { Component } from 'react';
 
 class Warehouses extends Component {
 
@@ -64,7 +65,23 @@ class Warehouses extends Component {
             .catch(error => {
                 console.log(error)
             })
-    }
+    };
+
+    doSort = (key) => {
+        const isOrded = this.state.displayedWarehouses[0]?.[key] < this.state.displayedWarehouses[1]?.[key];
+        const newList = this.state.displayedWarehouses.sort((a, b) => {
+            const nameA = a[key].toUpperCase();
+            const nameB = b[key].toUpperCase();
+            if (nameA < nameB) {
+              return isOrded ? 1 : -1;
+            }
+            if (nameA > nameB) {
+              return isOrded ? -1 : 1;
+            }
+            return 0;
+        });
+        this.setState({displayedWarehouses: newList})
+    };
 
     componentDidMount() {
         this.updateList();
@@ -81,10 +98,22 @@ class Warehouses extends Component {
                     </div>
                 </div>
                 <div className="warehouses__headers">
-                    <h3 className="warehouses__header warehouses__header--short">Warehouse</h3>
-                    <h3 className="warehouses__header warehouses__header--long">Address</h3>
-                    <h3 className="warehouses__header warehouses__header--short">Contact Name</h3>
-                    <h3 className="warehouses__header warehouses__header--long">Contact Information</h3>
+                    <div className="warehouses__header warehouses__header--short" onClick={()=>this.doSort("name")}>
+                        <h3>Warehouse</h3>
+                        <img src={sortIcon} alt='sort by Warehouse'/>
+                    </div>
+                    <div className="warehouses__header warehouses__header--long" onClick={()=>this.doSort("address")}>
+                        <h3>Address</h3>
+                        <img src={sortIcon} alt='sort by Address'/>
+                    </div>
+                    <div className="warehouses__header warehouses__header--short" onClick={()=>this.doSort("contactName")}>
+                        <h3>Contact Name</h3>
+                        <img src={sortIcon} alt='sort by Contact Name'/>
+                    </div>
+                    <div className="warehouses__header warehouses__header--long" onClick={()=>this.doSort("contactEmail")}>
+                        <h3>Contact Information</h3>
+                        <img src={sortIcon} alt='sort by Contact Information'/>
+                    </div>
                     <h3 className="warehouses__header warehouses__header--action">Actions</h3>
                 </div>
                 <div className='warehouses__list'>
