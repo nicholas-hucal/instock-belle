@@ -54,7 +54,7 @@ export default class Inventory extends Component {
             console.log(err);
             this.hideModal();
         });
-};
+  };
 
   // doSearch = (event) => {
   //   const search = event.target.value;

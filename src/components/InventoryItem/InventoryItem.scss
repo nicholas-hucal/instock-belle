@@ -18,13 +18,43 @@
     }
 }
 
+.inStock {
+    background-color: #15846338;
+    color: $supporting-green;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.outStock {
+    background-color: #c948153a;
+    color: $supporting-red;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: 110px;
+    height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .inventory {
+    &__delete {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        width: 35px;
+    }
+
     &__item {
         padding: 1rem 0;
         border-bottom: 1.5px solid $secondary-cloud;
         @include tablet {
             @include flex-it(nowrap, space-between, normal, row);
             padding: 2rem;
+            height: 2rem;
         }
 
         &:last-of-type {
@@ -38,6 +68,7 @@
 
     &__text-box {
         @include flex-it(nowrap, space-between, normal, row);
+        width: 100%;
         @include tablet { 
             width: 100%;
         }
@@ -45,8 +76,23 @@
 
     &__column {
         @include flex-it(wrap, flex-start, normal, column);
-        width: 50%;
         gap: 1rem;
+
+        &--left {
+            @include flex-it(wrap, flex-start, normal, column);
+            width: 65%;
+            gap: 1rem;
+            @include tablet {
+                @include flex-it(wrap, space-between, center, row);
+            }
+        }
+
+        &--right {
+            width: 35%;
+            @include tablet {
+                @include flex-it(wrap, flex-start, center, row);
+            }
+        }
 
         @include tablet {
             @include flex-it(nowrap, space-between, center, row);
@@ -69,6 +115,41 @@
         @include flex-it(nowrap, flex-start, normal, column);
         width: auto;
         box-sizing: border-box;
+        @include tablet {
+            @include flex-it(nowrap, flex-start, normal, row); 
+            &--1 {
+                width: 35%;
+            }
+            &--2 {
+                width: 25%;
+            }
+            &--3 {
+                width: 30%;
+            }
+            &--4 {
+                width: 40%;
+            }
+            &--5 {
+                width: 60%;
+            }
+        }
+        @include desktop {
+            &--1 {
+                width: 35%;
+            }
+            &--2 {
+                width: 28%;
+            }
+            &--3 {
+                width: 29%;
+            }
+            &--4 {
+                width: 46%;
+            }
+            &--5 {
+                width: 54%;
+            }
+        }
     }
 
     &__action {

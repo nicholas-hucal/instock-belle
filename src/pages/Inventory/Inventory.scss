@@ -42,14 +42,14 @@
 
         @include tablet {
             @include flex-it(nowrap, space-between, normal, row);
-            padding: 2rem;
+            padding: 1rem 2rem;
         }
     }
 
     &__header {
         @include flex-it(nowrap, space-between, normal, row);
         box-sizing: border-box;
-        color: $primary-black;
+        color: $secondary-slate;
         &--short {
             @include flex-it (nowrap, flex-start, center, row);
             width: 16%;
