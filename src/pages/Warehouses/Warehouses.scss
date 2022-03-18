@@ -43,6 +43,8 @@
 
     &__header {
         box-sizing: border-box;
+        display: flex;
+        gap: 0.5rem;
         &--short {
             width: 18%;
             padding-left: 1.7rem;
@@ -54,6 +56,10 @@
 
         &--action {
             width: 10%;
+        }
+
+        &:hover {
+            cursor: pointer;
         }
     }
 }
