@@ -18,6 +18,8 @@ class InventoryForm extends Component {
         const inputs = [...this.state.inputs];
         const check = inputs.filter(input => input.valid !== true);
 
+        console.log("uptodatefile")
+
         if (check.length !== 0) {
             inputs.forEach((field, idx) => {
                 const e = {
@@ -34,14 +36,26 @@ class InventoryForm extends Component {
             inputs.forEach(field => {
                 data[field.name] = field.value;
             })
-            axios
-                .post(`http://localhost:8080/inventory/${this.state.currentItem}`, data)
-                .then(response => {
-                    this.props.history.push(`/${response.data.id}`);
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+            console.log(data);
+            if (this.state.currentWarehouse) {
+                axios
+                    .put(`http://localhost:8080/inventory/${this.state.currentItem}`, data)
+                    .then(response => {
+                        this.props.history.push(`/${response.data.id}`);
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            } else {
+                axios
+                    .post(`http://localhost:8080/inventory/`, data)
+                    .then(response => {
+                        this.props.history.push(`/${response.data.id}`);
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            }
         }
     }
 
@@ -99,7 +113,7 @@ class InventoryForm extends Component {
             inputs: [
                 { name: 'itemName', value: data ? data.name : '', error: '', valid: data ? true : false },
                 { name: 'description', value: data ? data.description : '', error: '', valid: data ? true : false },
-                { name: 'category', value: data ? data.category : '', error: '', valid: true },
+                { name: 'category', value: data ? data.category : 'Electronics', error: '', valid: true },
                 { name: 'status', value: data ? data.status : 'In Stock', error: '', valid: true },
                 { name: 'quantity', value: data ? data.quantity : 1, error: '', valid: true },
                 { name: 'warehouseName', value: data ? data.category : '', error: '', valid: true },
