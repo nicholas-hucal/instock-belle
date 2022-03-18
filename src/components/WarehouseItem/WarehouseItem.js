@@ -7,6 +7,7 @@ import './WarehouseItem.scss';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import { Link } from 'react-router-dom';
+import ChevronLink from '../ChevronLink/ChevronLink.js';
 
 function WarehouseItem ({ id, name, address, contactName, contactPhone, contactEmail, selectWarehouse}) {
     return (
@@ -15,7 +16,7 @@ function WarehouseItem ({ id, name, address, contactName, contactPhone, contactE
                 <div className="warehouses__column">
                     <div className="warehouses__content warehouses__content--short">
                         <h3 className="warehouses__mobile-header">Warehouse</h3>
-                        <Link to={`/${id}`} className="link">{name}</Link>
+                        <ChevronLink link={`/${id}`} text={name}/>
                     </div>
                     <div className="warehouses__content warehouses__content--long">
                         <h3 className="warehouses__mobile-header">Address</h3>
