@@ -10,6 +10,7 @@ import InventoryEdit from './pages/InventoryEdit/InventoryEdit.js';
 import Inventory from './pages/Inventory/Inventory.js';
 import NotFound from './pages/NotFound/NotFound.js';
 import Footer from './components/Footer/Footer'
+import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 
 function App() {
   return (
@@ -20,8 +21,8 @@ function App() {
       <Switch>
         <Route path="/inventory" exact component={Inventory} />
         <Route path="/inventory/add" exact component={InventoryAdd} />
+        <Route path="/inventory/:inventoryId" component={InventoryItemDetails} />
         <Route path="/inventory/:inventoryId/edit" component={InventoryEdit} />
-        <Route path="/inventory/:inventoryId" component={Inventory} />
         <Route path="/add" component={WarehouseAdd}/>
         <Route path="/:warehouseId/edit" component={WarehouseEdit} />
         <Route path="/:warehouseId" component={Warehouse} />
