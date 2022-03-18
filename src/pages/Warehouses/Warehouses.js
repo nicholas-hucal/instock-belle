@@ -5,6 +5,7 @@ import Button from "../../components/Button/Button";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { Component } from 'react';
 import WarehouseModal from '../../components/WarehouseModal/WarehouseModal';
+import api from '../../utils/api';
 
 class Warehouses extends Component {
 
@@ -53,6 +54,19 @@ class Warehouses extends Component {
             });
     };
 
+    doSearch = (event) => {
+        const search = event.target.value;
+        api
+            .doSearch({search: search, type: 'warehouse'})
+            .then(response => {
+                console.log(response.data)
+                this.setState({displayedWarehouses: response.data});
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     componentDidMount() {
         this.updateList();
     };
@@ -63,7 +77,7 @@ class Warehouses extends Component {
                 <div className='warehouses__nav'>
                     <h1>Warehouses</h1>
                     <div className='warehouses__form'>
-                        <SearchBox />
+                        <SearchBox doSearch={this.doSearch}/>
                         <Button text="+ Add New Warehouse" onClick={() => this.props.history.push('/add')}/>
                     </div>
                 </div>

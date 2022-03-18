@@ -11,5 +11,8 @@ export default {
     },
     addWarehouse(warehouse) {
         return axios.post(`${BASE_URL}/warehouse`, warehouse)
+    },
+    doSearch(search) {
+        return axios.post(`${BASE_URL}/search`, search)
     }
 }
