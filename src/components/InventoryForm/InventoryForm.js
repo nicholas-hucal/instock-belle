@@ -109,12 +109,12 @@ class InventoryForm extends Component {
     formatResponseObject = (data) => {
         this.setState({
             inputs: [
-                { name: 'itemName', value: data ? data.name : '', error: '', valid: data ? true : false },
+                { name: 'itemName', value: data ? data.itemName : '', error: '', valid: data ? true : false },
                 { name: 'description', value: data ? data.description : '', error: '', valid: data ? true : false },
                 { name: 'category', value: data ? data.category : 'Electronics', error: '', valid: true },
                 { name: 'status', value: data ? data.status : 'In Stock', error: '', valid: true },
                 { name: 'quantity', value: data ? data.quantity : 1, error: '', valid: true },
-                { name: 'warehouseName', value: data ? data.category : '', error: '', valid: true },
+                { name: 'warehouseName', value: data ? data.warehouseName : '', error: '', valid: true },
             ],
             currentItem: data ? data.id : '',
             requestError: false
