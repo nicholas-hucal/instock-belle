@@ -20,7 +20,10 @@
         background-color: $primary-white;
         margin: 0;
         padding: 0;
-        cursor: pointer;
+        
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__heading {

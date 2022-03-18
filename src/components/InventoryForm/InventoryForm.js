@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './InventoryForm.scss';
 import back from '../../assets/icons/arrow_back-24px.svg';
-import axios from 'axios';
+import api from '../../utils/api.js';
 import Button from '../Button/Button';
 
 class InventoryForm extends Component {
@@ -27,7 +27,6 @@ class InventoryForm extends Component {
                     }
                 }
                 this.handleInputChange(idx, e)
-                console.log("in if")
             })
         } else {
             const data = {};
@@ -37,8 +36,8 @@ class InventoryForm extends Component {
             console.log(data);
             if (this.state.currentItem) {
                 data.id = this.state.currentItem;
-                axios
-                    .put(`http://localhost:8080/inventory/${this.state.currentItem}`, data)
+                api
+                    .editInventory(data, data.id)
                     .then(response => {
                         this.props.history.push(`/${response.data.id}`);
                     })
@@ -46,8 +45,8 @@ class InventoryForm extends Component {
                         console.log(err)
                     })
             } else {
-                axios
-                    .post(`http://localhost:8080/inventory/`, data)
+                api
+                    .addInventory(data)
                     .then(response => {
                         this.props.history.push(`/${response.data.id}`);
                     })
@@ -125,8 +124,8 @@ class InventoryForm extends Component {
     componentDidMount() {
         const id = this.props.match.params.inventoryId;
         if (id) {
-            axios
-                .get(`http://localhost:8080/inventory/${id}`)
+            api
+                .getInventoryById(id)
                 .then(response => {
                     this.formatResponseObject(response.data);
                 })
@@ -139,8 +138,8 @@ class InventoryForm extends Component {
         } else {
             this.formatResponseObject(null)
         };
-        axios
-            .get(`http://localhost:8080/warehouse`)
+        api
+            .getAllWarehouses()
             .then(response => {
                 let list = response.data.map(warehouse => warehouse.name);
                 this.setState({warehouseList: list});
