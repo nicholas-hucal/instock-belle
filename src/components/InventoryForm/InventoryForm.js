@@ -35,7 +35,8 @@ class InventoryForm extends Component {
                 data[field.name] = field.value;
             })
             console.log(data);
-            if (this.state.currentWarehouse) {
+            if (this.state.currentItem) {
+                data.id = this.state.currentItem;
                 axios
                     .put(`http://localhost:8080/inventory/${this.state.currentItem}`, data)
                     .then(response => {
