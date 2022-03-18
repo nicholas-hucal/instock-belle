@@ -6,7 +6,7 @@
 import './WarehouseList.scss';
 import WarehouseItem from '../WarehouseItem/WarehouseItem';
  
-function WarehouseList ({displayList}) {
+function WarehouseList ({displayList, selectWarehouse}) {
      return (
         <>
             {displayList.map ((warehouse) =>
@@ -18,6 +18,7 @@ function WarehouseList ({displayList}) {
                     contactName={warehouse.contactName}
                     contactPhone={warehouse.contactPhone}
                     contactEmail={warehouse.contactEmail}
+                    selectWarehouse={selectWarehouse}
                 />
             )}
         </>

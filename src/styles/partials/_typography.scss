@@ -51,6 +51,7 @@ h3, a, button, label {
     font-weight: 600;
     font-size: 0.8125rem;
     line-height: 1.25rem;
+    font-family: 'Titillium Web';
     @include mixins.tablet {
         font-size: 0.875rem;
         line-height: 1.375rem;
@@ -67,4 +68,3 @@ p {
         line-height: 1.75rem;
     }
 }
-

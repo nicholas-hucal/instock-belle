@@ -83,6 +83,10 @@
         @include desktop {
             margin: 1rem 2rem 0 0;
         }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__link {

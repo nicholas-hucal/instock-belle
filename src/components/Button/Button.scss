@@ -4,8 +4,9 @@
 
 .call-to-action {
     background-color: $primary-indigo;
+    color: $primary-white;
     height: 40px;
-    padding: 0 1.5rem;
+    padding: 0 0.5rem;
     border-radius: 20px;
     border: none;
     display: flex;
@@ -16,6 +17,7 @@
     width: 100%;
     @include tablet {
         width: auto;
+        padding: 0 1.5rem;
     }
 
     &:hover {
@@ -24,7 +26,6 @@
     }
 
     &__text{
-        color: $primary-white;
         margin: 0;
         font-size: 0.95em;
     }
@@ -34,4 +35,14 @@
         position: absolute;
         left: 0.5rem;
     }
+
+    &--cancel {
+        background-color: $primary-white;
+        color: $primary-black;
+
+        &:hover {
+            color: $primary-white;
+        }
+    }
+
 }

@@ -4,13 +4,29 @@ import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import Button from "../../components/Button/Button";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { Component } from 'react';
+import WarehouseModal from '../../components/WarehouseModal/WarehouseModal';
 
 class Warehouses extends Component {
 
-    state = {displayedWarehouses: []};
+    state = {
+        displayedWarehouses: [],
+        displayModal: false,
+        clickedWarehouseId: ''
+    };
 
-    componentDidMount() {
-        this.updateList();
+    showModal = () => {
+        this.setState({ displayModal: true });
+    };
+
+    hideModal = () => {
+        this.setState({ displayModal: false });
+    };
+
+    selectWarehouse = (selectedWarehouseId) => {
+        this.setState(
+            {clickedWarehouseId: selectedWarehouseId},
+            this.showModal()
+        );
     };
 
     updateList = () => {
@@ -24,6 +40,23 @@ class Warehouses extends Component {
             });
     };
 
+    deleteOne = () => {
+        axios
+            .delete(`http://localhost:8080/${this.state.clickedWarehouseId}`)
+            .then(() => {
+                this.updateList();
+                this.hideModal();
+            })
+            .catch((err) => {
+                console.log(err);
+                this.hideModal();
+            });
+    };
+
+    componentDidMount() {
+        this.updateList();
+    };
+
     render () {
         return (
             <div className='warehouses'>
@@ -31,7 +64,7 @@ class Warehouses extends Component {
                     <h1>Warehouses</h1>
                     <div className='warehouses__form'>
                         <SearchBox />
-                        <Button text="+ Add New Warehouse"/>
+                        <Button text="+ Add New Warehouse" onClick={() => this.props.history.push('/add')}/>
                     </div>
                 </div>
                 <div className="warehouses__headers">
@@ -42,8 +75,11 @@ class Warehouses extends Component {
                     <h3 className="warehouses__header warehouses__header--action">Actions</h3>
                 </div>
                 <div className='warehouses__list'>
-                    <WarehouseList displayList={this.state.displayedWarehouses} />
+                    <WarehouseList displayList={this.state.displayedWarehouses} selectWarehouse={this.selectWarehouse}/>
                 </div>
+                {this.state.displayModal && 
+                    <WarehouseModal hideModal={this.hideModal} delete={this.deleteOne}/>
+                }
             </div>
         );
     };
