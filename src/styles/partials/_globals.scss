@@ -31,8 +31,9 @@ input, textarea {
         text-decoration: underline;
     }
 
-    &::after {
-        content: ">";
-        margin-left: 0.5rem;
-    }
+    // &::after {
+    //     content: ">";
+    //     margin-left: 0.5rem;
+    // }
+
 }
