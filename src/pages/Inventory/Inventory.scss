@@ -17,7 +17,8 @@
 
         @include tablet {
             @include flex-it(nowrap, space-between, normal, row);
-            border-bottom: none
+            border-bottom: none;
+            padding: 2rem;
         }
     }
 
@@ -37,16 +38,18 @@
         color: $secondary-slate;
         background-color: $background-light-grey;
         text-transform: uppercase;
-        padding: 1rem 0;
+        padding: 1rem;
 
         @include tablet {
-            @include flex-it(nowrap, flex-start, normal, row);
+            @include flex-it(nowrap, space-between, normal, row);
+            padding: 2rem;
         }
     }
 
     &__header {
+        @include flex-it(nowrap, space-between, normal, row);
         box-sizing: border-box;
-        padding-right: .4rem;
+        color: $primary-black;
         &--short {
             @include flex-it (nowrap, flex-start, center, row);
             width: 16%;

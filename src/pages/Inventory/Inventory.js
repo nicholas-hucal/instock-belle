@@ -5,11 +5,27 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import { Component } from 'react';
 import InventoryList from '../../components/InventoryList/InventoryList';
 import sortLogo from '../../assets/icons/sort-24px.svg';
+import InventoryModal from '../../components/InventoryModal/InventoryModal';
 
 
 export default class Inventory extends Component {
 
-  state = { displayedInventory: [] };
+  state = {
+    displayedInventory: [],
+    displayModal: false,
+    deleteItem: {},
+  };
+
+  showModal = (item) => {
+    this.setState({ 
+      displayModal: true,
+      deleteItem: item, 
+    });
+  };
+
+  hideModal = () => {
+    this.setState({ displayModal: false, deleteItem: {}});
+  };
 
   componentDidMount() {
     this.updateList();
@@ -26,6 +42,19 @@ export default class Inventory extends Component {
         console.log(err);
       });
   };
+
+  deleteOne = () => {
+    axios
+        .delete(`http://localhost:8080/inventory/${this.state.deleteItem.id}`)
+        .then(() => {
+            this.updateList();
+            this.hideModal();
+        })
+        .catch((err) => {
+            console.log(err);
+            this.hideModal();
+        });
+};
 
   // doSearch = (event) => {
   //   const search = event.target.value;
@@ -50,34 +79,37 @@ export default class Inventory extends Component {
             <Button text="+ Add New Item" />
           </div>
         </div>
-        <div className="inventory__headers">
-          <div className='inventory__header--long'>
+        <ul className="inventory__headers">
+          <li className='inventory__header'>
             <h3 className="inventory__header">Inventory Item</h3>
             <img src={sortLogo} alt="sorting logo" />
-          </div>
-          <div className='inventory__header--mid'>
+          </li>
+          <li className='inventory__header'>
             <h3 className="inventory__header">Category</h3>
             <img src={sortLogo} alt="sorting logo" />
-          </div>
-          <div className='inventory__header--short'>
+          </li>
+          <li className='inventory__header'>
             <h3 className="inventory__header">Status</h3>
             <img src={sortLogo} alt="sorting logo" />
-          </div>
-          <div className='inventory__header--shorter'>
+          </li>
+          <li className='inventory__header'>
             <h3 className="inventory__header">Qty</h3>
             <img src={sortLogo} alt="sorting logo" />
-          </div>
-          <div className='inventory__header--mid'>
+          </li>
+          <li className='inventory__header'>
             <h3 className="inventory__header">Warehouse</h3>
             <img src={sortLogo} alt="sorting logo" />
-          </div>
-          <div className='inventory__header--action'>
+          </li>
+          <li className='inventory__header'>
             <h3 className="inventory__header">Actions</h3>
-          </div>
-        </div>
+          </li>
+        </ul>
         <div className='inventory__list'>
-          <InventoryList displayList={this.state.displayedInventory} />
+          <InventoryList displayList={this.state.displayedInventory} showModal={this.showModal} />
         </div>
+        {this.state.displayModal &&
+          <InventoryModal hideModal={this.hideModal} delete={this.deleteOne} name={this.state.deleteItem.name} />
+        }
       </div>
     )
   }

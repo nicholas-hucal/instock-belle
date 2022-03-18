@@ -1,7 +1,7 @@
 import './InventoryList.scss';
 import InventoryItem from '../InventoryItem/InventoryItem';
 
-export default function InventoryList ({displayList}) {
+export default function InventoryList ({displayList, showModal}) {
     return (
         <>
             {displayList.map ((inventory) => 
@@ -15,6 +15,7 @@ export default function InventoryList ({displayList}) {
                     category={inventory.category}
                     status={inventory.status}
                     quantity={inventory.quantity}
+                    showModal={showModal}
                 />
             )}
         </>

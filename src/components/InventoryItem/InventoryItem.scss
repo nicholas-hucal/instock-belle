@@ -24,6 +24,7 @@
         border-bottom: 1.5px solid $secondary-cloud;
         @include tablet {
             @include flex-it(nowrap, space-between, normal, row);
+            padding: 2rem;
         }
 
         &:last-of-type {
@@ -37,8 +38,8 @@
 
     &__text-box {
         @include flex-it(nowrap, space-between, normal, row);
-        @include tablet {
-            width: 90%;
+        @include tablet { 
+            width: 100%;
         }
     }
 
@@ -48,16 +49,9 @@
         gap: 1rem;
 
         @include tablet {
+            @include flex-it(nowrap, space-between, center, row);
             width: 100%;
             gap: 0;
-            &--left {
-                @include flex-it(nowrap, flex-start, normal, row);
-                width: 66.5%;
-            }
-            &--right {
-                @include flex-it(nowrap, flex-start, normal, row);
-                width: 33.5%;
-            }
         }
     }
 
@@ -75,41 +69,12 @@
         @include flex-it(nowrap, flex-start, normal, column);
         width: auto;
         box-sizing: border-box;
-        &--short {
-            @include tablet {
-                @include flex-it(nowrap, flex-start, center, row);
-                width: 45%;
-                padding-left: 1.7rem;
-            }
-        }
-        
-        &--shorter {
-            @include tablet {
-                @include flex-it(nowrap, flex-start, center, row);
-                width: 60%;
-            }
-        }
-
-        &--shortest {
-            @include tablet {
-                @include flex-it(nowrap, flex-start, center, row);
-                width: 30%;
-            }
-        }
-
-
-        &--long {
-            @include tablet {
-                @include flex-it(nowrap, flex-start, center, row);
-                width: 60%;
-            }
-        }
     }
 
     &__action {
         @include flex-it(nowrap, space-between, normal, row);
         @include tablet {
-            @include flex-it(nowrap, flex-start, flex-start, column);
+            @include flex-it(nowrap, flex-end, center, row);
             width: 10%;
         }
     }
