@@ -4,8 +4,8 @@
 .search-box {
     position: relative;
     padding: 0 1rem;
-    display: none;    
-    
+    height: 2.5rem;
+
     @include tablet {
         display: block;
         width: 10rem;
