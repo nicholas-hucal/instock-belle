@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import ChevronLink from '../ChevronLink/ChevronLink.js';
-import InventoryModal from '../InventoryModal/InventoryModal.jsx';
+import InventoryModal from '../InventoryModal/InventoryModal';
 import {Component} from 'react';
-import axios from 'axios';
+import api from '../../utils/api';
 
 class WarehouseInvItem extends Component {
 
@@ -26,8 +26,8 @@ class WarehouseInvItem extends Component {
     };
 
     deleteOne = () => {
-    axios
-        .delete(`http://localhost:8080/inventory/${this.state.deleteItem.id}`)
+    api
+        .deleteInventory(this.state.deleteItem.id)
         .then(() => {
             this.hideModal();
             this.props.getInventory(this.props.warehouseId)

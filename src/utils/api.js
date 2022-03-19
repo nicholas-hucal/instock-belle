@@ -32,7 +32,13 @@ const api =  {
     },
     editInventory(inventory, id) {
         return axios.put(`${BASE_URL}/inventory/${id}`, inventory)
-    }
+    },
+    deleteInventory(inventoryId) {
+        return axios.delete(`${BASE_URL}/inventory/${inventoryId}`)
+    },
+    getAllInventory() {
+        return axios.get(`${BASE_URL}/inventory`)
+    },
 }
 
 export default api;
