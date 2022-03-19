@@ -5,26 +5,49 @@
     &__header{
         display: flex;
         align-items: center;
-        padding: 2rem 1.5rem;
+        justify-content: space-between;
+        padding: 1rem;
         border-bottom: colors.$secondary-cloud 0.01rem solid;
+
+        @include mixins.tablet {
+            padding: 2rem;
+        }
         &-icons{
-            padding-top: 1.5vh;
-            width: 6vw;
+
         }
         &-text{
             padding-left: 0.5rem;
             padding-right: 4.5rem;
         }
         &-bg{
-            height: 2rem;
-            width: 2.2rem;
             border-radius: 50%;
             background-color: colors.$primary-indigo;
-            background-image: url(../../assets/icons/edit-24px.svg);
-            background-repeat: no-repeat;
-            background-size: 1rem;
-            background-position: 3vw;
+            height: 2rem;
+            width: 2rem;
+            text-align: center;
+        
+            @include mixins.tablet {
+                height: auto;
+                width: auto;
+                border-radius: 1.5rem;
+                padding: 0.25rem 1rem;
+                display: flex;
+            }
         }
+    }
+
+    &__header-edit-image {
+        filter: brightness(0 ) invert(1);
+        margin-top: 0.25rem;
+        @include mixins.tablet {
+            margin-top: 0;
+            margin-right: 0.25rem;
+        }
+    }
+
+    &__header-container {
+        display: flex;
+        align-items: center;
     }
     &__info{
         margin: 0 1.5rem;
@@ -44,6 +67,15 @@
         }
         &-text{
             font-size: 0.813rem;
+        }
+    }
+
+    &__header-edit-text {
+        display: none;
+        color: colors.$primary-white;
+
+        @include mixins.tablet {
+            display: inline;
         }
     }
 }
