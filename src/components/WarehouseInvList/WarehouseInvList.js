@@ -3,13 +3,13 @@ import WarehouseInvItem from '../WarehouseInvItem/WarehouseInvItem';
  
 function WarehouseInvList ({list, warehouseId, getInventory}) {
      return (
-        <main className="inventory">
-        <div className="inventory__headers">
-                <h3 className="inventory__header inventory__header--short">INVENTORY ITEM</h3>
-                <h3 className="inventory__header inventory__header--long">CATEGORY</h3>
-                <h3 className="inventory__header inventory__header--short">STATUS</h3>
-                <h3 className="inventory__header inventory__header--long">QUANTITY</h3>
-                <h3 className="inventory__header inventory__header--action">Actions</h3>
+        <main className="invList">
+        <div className="invList__headers">
+                <h3 className="invList__header invList__header--short">INVENTORY ITEM</h3>
+                <h3 className="invList__header invList__header--long">CATEGORY</h3>
+                <h3 className="invList__header invList__header--short">STATUS</h3>
+                <h3 className="invList__header invList__header--long">QUANTITY</h3>
+                <h3 className="invList__header invList__header--action">Actions</h3>
         </div>
             {list.map ((inventory) =>
                 <WarehouseInvItem
