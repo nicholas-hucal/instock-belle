@@ -14,5 +14,8 @@ export default {
     },
     doSearch(search) {
         return axios.post(`${BASE_URL}/search`, search)
+    },
+    inventoryContent(id){
+        return axios.get(`${BASE_URL}/warehouse/${id}/inventory`)
     }
 }
