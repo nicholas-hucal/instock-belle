@@ -3,8 +3,14 @@ import axios from "axios";
 const BASE_URL = "http://localhost:8080";
 
 export default {
+    getAllWarehouses(){
+        return axios.get(`${BASE_URL}/warehouse/`);
+    },
     getWarehouseById(id){
         return axios.get(`${BASE_URL}/warehouse/${id}`);
+    },
+    deleteWarehouseById(id){
+        return axios.delete(`${BASE_URL}/warehouse/${id}`);
     },
     editWarehouse(warehouse, id) {
         return axios.put(`${BASE_URL}/warehouse/${id}`, warehouse)
@@ -17,5 +23,14 @@ export default {
     },
     inventoryContent(id){
         return axios.get(`${BASE_URL}/warehouse/${id}/inventory`)
+    },
+    getInventoryById(id){
+        return axios.get(`${BASE_URL}/inventory/${id}`);
+    },
+    addInventory(inventory) {
+        return axios.post(`${BASE_URL}/inventory`, inventory)
+    },
+    editInventory(inventory, id) {
+        return axios.put(`${BASE_URL}/inventory/${id}`, inventory)
     }
 }

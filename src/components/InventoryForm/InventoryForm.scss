@@ -1,7 +1,8 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
 
-.warehouse-form {
+.inventory-form {
 
     background-color: $primary-white;
 
@@ -20,7 +21,7 @@
         background-color: $primary-white;
         margin: 0;
         padding: 0;
-        
+
         &:hover {
             cursor: pointer;
         }
@@ -42,15 +43,46 @@
     }
 
     &__input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    &__field {
         border-radius: 1.25rem;
         margin-top: 0.25rem;
         border: 1px solid $secondary-cloud;
         padding: 0.5rem 1rem;
         box-sizing: border-box;
         width: 100%;
+        font-family: 'Titillium Web';
+
+        &::placeholder {
+            color: black;
+            opacity: 1;
+            font-family: 'Titillium Web';
+        }
+
+        &--textarea {
+            height: 7rem;
+            resize: none;
+        }
 
         &--error {
             border: 1px solid $supporting-red;
+            outline: 1px solid $supporting-red;
+        }
+    }
+
+    &__stock {
+        font-size: 0.85rem;
+        color: grey;
+        display: inline-block;
+        margin: 0 1rem 0 0.2rem;
+
+        &--selected {
+            color: black;
         }
     }
 

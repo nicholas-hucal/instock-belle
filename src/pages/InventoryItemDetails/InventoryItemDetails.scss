@@ -1,0 +1,121 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+
+li {
+    color: $primary-black;
+}
+
+#poof {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+
+.inStock {
+    background-color: #15846338;
+    color: $supporting-green;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .75rem;
+}
+
+.outStock {
+    background-color: #c948153a;
+    color: $supporting-red;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: 85px;
+    height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .75rem;
+}
+
+.edit-icon {
+    filter: brightness(0) invert(1);
+}
+
+.icon-background {
+    @include flex-it(nowrap, center, center, row);
+    height: 40px;
+    width: 40px;
+    background-color: $primary-indigo;
+    border-radius: 2rem;
+    @include tablet {
+        width: 80px;
+    }
+}
+
+.back-icon {
+    @include flex-it (nowrap, center, center, row)
+}
+
+.item {
+    height: fit-content;
+    &__list {
+        padding: 1rem;
+        @include flex-it(nowrap, space-between, baseline, row);
+        height: 3rem;
+        border-bottom: 1px solid $secondary-slate;
+    }
+    &__title {
+        @include flex-it (nowrap, flex-start, center, row);
+        width: 70%;
+        padding-bottom: .5rem;
+        &-text {
+            font-size: 2rem;
+            &--lower{
+                padding-bottom: 0;
+            }
+        }
+    }
+    &__details {
+        padding: 1rem;
+    }
+}
+
+.details {
+    @include tablet {
+        @include flex-it (nowrap, space-between, center, row);
+        padding: 0 1rem;
+    }
+    
+    &__container {
+        @include flex-it (nowrap, space-between, center, row);
+        @include tablet {
+            padding-bottom: 1rem;
+        }
+    }
+    
+    &__text {
+        font-size: .75rem;
+        line-height: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    &__quantity {
+        padding-right: 4rem;
+    }
+    
+    &__item {
+        @include tablet {
+            &--1 {
+                width: 40%;
+            }
+            &--2 {
+                width: 40%;
+                border-left: 1px solid $secondary-cloud;
+                padding-left: 3rem;
+            }
+        }
+    }
+}

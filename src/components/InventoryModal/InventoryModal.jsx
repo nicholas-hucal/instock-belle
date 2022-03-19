@@ -12,14 +12,14 @@ export default function InventoryModal(props) {
                     </li>
                     <li className="modal__list-content">
                         <h2 className="modal__title">
-                            Delete VARIABLE inventory item?
+                            Delete {props.name} inventory item?
                         </h2>
                         <p className="modal__text">
-                            Please confirm that you'd like to delete the VARIABLE from the inventory list. You won't be able to undo this action.
+                            Please confirm that you'd like to delete the {props.name} from the inventory list. You won't be able to undo this action.
                         </p>
                     </li>
                     <li className="modal__list-buttons">
-                        <button className="button__delete">
+                        <button className="button__delete" onClick={props.delete}>
                             Delete
                         </button>
                         <button className="button__cancel" onClick={props.hideModal}>
