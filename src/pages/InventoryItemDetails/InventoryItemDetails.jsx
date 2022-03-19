@@ -81,6 +81,4 @@ export default class InventoryItemDetails extends Component {
             </section>
         )
     }
-
-
 }

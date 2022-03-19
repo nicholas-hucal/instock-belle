@@ -39,7 +39,7 @@ class WarehouseForm extends Component {
                 api
                     .editWarehouse(data, this.state.currentWarehouse)
                     .then(response => {
-                        this.props.history.push(`/${response.data.id}`);
+                        this.props.history.push(`/warehouse/${response.data.id}`);
                     })
                     .catch(err => {
                         console.log(err)
@@ -48,7 +48,7 @@ class WarehouseForm extends Component {
                 api
                     .addWarehouse(data)
                     .then(response => {
-                        this.props.history.push(`/${response.data.id}`);
+                        this.props.history.push(`/warehouse/${response.data.id}`);
                     })
                     .catch(err => {
                         console.log(err)
