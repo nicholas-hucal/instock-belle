@@ -6,6 +6,9 @@
 
 .warehouses {
     padding: 2rem $interior-alignment 0 $interior-alignment;
+    @include tablet {
+        padding: 2rem 0 0 0;
+    }
 
     &__nav {
         @include flex-it(nowrap, flex-start, normal, column);
@@ -14,7 +17,8 @@
 
         @include tablet {
             @include flex-it(nowrap, space-between, normal, row);
-            border-bottom: none
+            border-bottom: none;
+            padding: 0 1.7rem 2rem 1.7rem;
         }
     }
 
@@ -44,22 +48,30 @@
     &__header {
         box-sizing: border-box;
         display: flex;
-        gap: 0.5rem;
+        gap: 2%;
         &--short {
-            width: 18%;
+            width: 19%;
             padding-left: 1.7rem;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         &--long {
-            width: 27%;
+            width: 26%;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         &--action {
             width: 10%;
         }
+    }
 
-        &:hover {
-            cursor: pointer;
-        }
+    &__sort {
+        height: 1.5rem;
     }
 }

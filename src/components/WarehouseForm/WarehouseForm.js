@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './WarehouseForm.scss';
 import back from '../../assets/icons/arrow_back-24px.svg';
 import { emailRegex, phoneRegex } from '../../utils/validation.js';
-import axios from 'axios';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import api from '../../utils/api.js';
@@ -40,7 +39,7 @@ class WarehouseForm extends Component {
                 api
                     .editWarehouse(data, this.state.currentWarehouse)
                     .then(response => {
-                        this.props.history.push(`/${response.data.id}`);
+                        this.props.history.push(`/warehouse/${response.data.id}`);
                     })
                     .catch(err => {
                         console.log(err)
@@ -49,7 +48,7 @@ class WarehouseForm extends Component {
                 api
                     .addWarehouse(data)
                     .then(response => {
-                        this.props.history.push(`/${response.data.id}`);
+                        this.props.history.push(`/warehouse/${response.data.id}`);
                     })
                     .catch(err => {
                         console.log(err)

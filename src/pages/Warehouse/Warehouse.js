@@ -1,6 +1,5 @@
 import './Warehouse.scss';
 import React from 'react';
-import axios from "axios";
 import {Link} from "react-router-dom";
 import arrow from "../../assets/icons/arrow_back-24px.svg";
 import api from "../../utils/api.js";
@@ -20,8 +19,6 @@ class Warehouse extends React.Component{
       this.setState({
         selectedWarehouse: res.data
       })
-      // this.getInventory(warehouseId || res.data[0].id)
-      // console.log(res.data.contact.email)
     })
   }
 
@@ -53,7 +50,7 @@ class Warehouse extends React.Component{
     <main className='warehouse'>
       <section className="warehouse__header">
         <Link to="/">
-          <img src={arrow} className="warehouse__header-icons" />
+          <img src={arrow} alt="go back" className="warehouse__header-icons" />
         </Link>
         <h2 className="warehouse__header-text">{name}</h2>
         <Link to={`/warehouse/${id}/edit`} className="warehouse__header-bg">edit</Link>

@@ -11,10 +11,10 @@ export default function WarehouseModal(props) {
                 </li>
                 <li className="modal__list-content">
                     <h2 className="modal__title">
-                        Delete VARIABLE warehouse?
+                        Delete {props.name} warehouse?
                     </h2>
                     <p className="modal__text">
-                        Please confirm that you'd like to delete the VARIABLE from the list
+                        Please confirm that you'd like to delete {props.name} from the list
                         of warehouses. You won't be able to undo this action.
                     </p>
                 </li>

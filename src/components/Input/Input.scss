@@ -10,11 +10,15 @@
         border-radius: 1.25rem;
         margin-top: 0.25rem;
         border: 1px solid $secondary-cloud;
-        padding: 0.5rem 1rem;
+        padding: 0.6rem 1rem;
         box-sizing: border-box;
         width: 100%;
+
+        &:focus {
+            border: 1px solid $primary-indigo;
+        }
     }
     &--error {
-        border: 1px solid $supporting-red;
+        border: 1px solid $supporting-red!important;
     }
 }

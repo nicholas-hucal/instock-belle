@@ -1,5 +1,5 @@
 import './App.scss';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Warehouses from './pages/Warehouses/Warehouses.js';
 import Header from './components/Header/Header'
 import Warehouse from './pages/Warehouse/Warehouse.js';
@@ -23,10 +23,13 @@ function App() {
         <Route path="/inventory/add" exact component={InventoryAdd} />
         <Route path="/inventory/:inventoryId/edit" component={InventoryEdit} />
         <Route path="/inventory/:inventoryId" component={InventoryItemDetails} />
-        <Route path="/add" component={WarehouseAdd}/>
-        <Route path="/:warehouseId/edit" component={WarehouseEdit} />
-        <Route path="/:warehouseId" component={Warehouse} />
-        <Route path="/" exact component={Warehouses} />
+        <Route path="/warehouse/add" component={WarehouseAdd}/>
+        <Route path="/warehouse/:warehouseId/edit" component={WarehouseEdit} />
+        <Route path="/warehouse/:warehouseId" component={Warehouse} />
+        <Route path="/warehouse" component={Warehouses} />
+        <Route path="/" exact>
+          <Redirect to="/warehouse" />
+        </Route>
         <Route component={NotFound} />
       </Switch>
       </section>

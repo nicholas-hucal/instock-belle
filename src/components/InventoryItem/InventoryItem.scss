@@ -23,8 +23,7 @@
     color: $supporting-green;
     border-radius: 2rem;
     font-weight: 600;
-    width: 60px;
-    height: 25px;
+    padding: 0 0.25rem;
     text-align: center;
     text-transform: uppercase;
     font-size: .75rem;
@@ -35,8 +34,7 @@
     color: $supporting-red;
     border-radius: 2rem;
     font-weight: 600;
-    width: 85px;
-    height: 25px;
+    padding: 0.1rem 0.25rem;
     text-align: center;
     text-transform: uppercase;
     font-size: .75rem;
@@ -108,6 +106,13 @@
         color: $secondary-slate;
         text-transform: uppercase;
 
+        &--last {
+            padding-top: 1rem;
+
+            @include tablet {
+                padding-top: 0rem;
+            }
+        }
         @include tablet {
             display: none;
         }
@@ -117,7 +122,10 @@
         @include flex-it(nowrap, flex-start, normal, column);
         width: auto;
         box-sizing: border-box;
+        padding-bottom: 1rem;
         @include tablet {
+            padding-bottom: 0;
+
             @include flex-it(nowrap, flex-start, normal, row); 
             &--1 {
                 width: 35%;
