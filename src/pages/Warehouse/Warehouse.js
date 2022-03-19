@@ -34,7 +34,7 @@ class Warehouse extends React.Component{
       })
     })
   }
-  
+
   componentDidMount(){
     this.getSelectedWarehouse(this.props.match.params.warehouseId);
     // console.log(this.props.match.params.warehouseId)
@@ -50,7 +50,7 @@ class Warehouse extends React.Component{
 
 
   render(){
-    const {name, address, country, city, contact} = this.state.selectedWarehouse;
+    const {name, address, country, city, contact, id} = this.state.selectedWarehouse;
     return (
     <main className='warehouse'>
       <section className="warehouse__header">
@@ -58,7 +58,7 @@ class Warehouse extends React.Component{
           <img src={arrow} className="warehouse__header-icons" />
         </Link>
         <h2 className="warehouse__header-text">{name}</h2>
-        <Link to="/" className="warehouse__header-bg"></Link>
+        <Link to={`/${id}/edit`} className="warehouse__header-bg">edit</Link>
       </section>
       <section className="warehouse__info">
         <h4 className="warehouse__info-headers">Warehouse Address:</h4>
@@ -76,7 +76,7 @@ class Warehouse extends React.Component{
           </div>
         </div>
       </section>
-      <WarehouseInvList list={this.state.inventoryContent} />
+      <WarehouseInvList warehouseId={id} getInventory={this.getInventory} list={this.state.inventoryContent} />
     </main>
   )}
 }

@@ -1,7 +1,7 @@
 import './WarehouseInvList.scss';
 import WarehouseInvItem from '../WarehouseInvItem/WarehouseInvItem';
  
-function WarehouseInvList ({list}) {
+function WarehouseInvList ({list, warehouseId, getInventory}) {
      return (
         <main className="inventory">
         <div className="inventory__headers">
@@ -13,6 +13,8 @@ function WarehouseInvList ({list}) {
         </div>
             {list.map ((inventory) =>
                 <WarehouseInvItem
+                    getInventory={getInventory}
+                    warehouseId={warehouseId} 
                     key={inventory.id}
                     id={inventory.id}
                     name={inventory.itemName}
