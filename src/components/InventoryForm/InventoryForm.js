@@ -159,7 +159,7 @@ class InventoryForm extends Component {
 
     render() {
         const { title, submitText } = this.props;
-        const { inputs, requestError } = this.state;
+        const { requestError } = this.state;
 
         return (
             <section className='inventory-form'>

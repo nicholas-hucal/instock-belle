@@ -50,7 +50,7 @@ export default class InventoryItemDetails extends Component {
                 </ul>
                 <div className="item__details">
                     <ul className="details">
-                        <li className="details__item--1">
+                        <li className="details__item details__item--1">
                             <div className="details__description">
                                 <h3 className="details__header">Item Description:</h3>
                                 <p className="details__text">{description}</p>
@@ -60,7 +60,7 @@ export default class InventoryItemDetails extends Component {
                                 <p className="details__text">{category}</p>
                             </div>
                         </li>
-                        <li className="details__item--2">
+                        <li className="details__item details__item--2">
                             <div className="details__container">
                                 <div className="details__status">
                                     <h3 className="details__header">Status:</h3>
@@ -72,7 +72,7 @@ export default class InventoryItemDetails extends Component {
                                 </div>
                             </div>
                             <div className="details__warehouse">
-                                <h3 className="details__header">Warehouse:</h3>
+                                <h3 className="details__header details__header--last">Warehouse:</h3>
                                 <p className="details__text">{warehouseName}</p>
                             </div>
                         </li>
@@ -81,6 +81,4 @@ export default class InventoryItemDetails extends Component {
             </section>
         )
     }
-
-
 }

@@ -34,7 +34,7 @@ export default function InventoryItem({ id, itemName, category, status, quantity
                         <p>{quantity}</p>
                     </div>
                     <div className="inventory__content--5">
-                        <h3 className="inventory__mobile-header">WAREHOUSE</h3>
+                        <h3 className="inventory__mobile-header inventory__mobile-header--last">WAREHOUSE</h3>
                         <p>{warehouseName}</p>
                     </div>
                 </div>

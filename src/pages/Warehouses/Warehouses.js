@@ -8,7 +8,7 @@ import api from '../../utils/api';
 import { Component } from 'react';
 
 class Warehouses extends Component {
-
+    
     state = {
         displayedWarehouses: [],
         displayModal: false,
@@ -61,7 +61,6 @@ class Warehouses extends Component {
         api
             .doSearch({search: search, type: 'warehouse'})
             .then(response => {
-                console.log(response.data)
                 this.setState({displayedWarehouses: response.data});
             })
             .catch(error => {
@@ -102,7 +101,7 @@ class Warehouses extends Component {
                     <h1>Warehouses</h1>
                     <div className='warehouses__form'>
                         <SearchBox doSearch={this.doSearch}/>
-                        <Button text="+ Add New Warehouse" onClick={() => this.props.history.push('/add')}/>
+                        <Button text="+ Add New Warehouse" onClick={() => this.props.history.push('/warehouse/add')}/>
                     </div>
                 </div>
                 <div className="warehouses__headers">

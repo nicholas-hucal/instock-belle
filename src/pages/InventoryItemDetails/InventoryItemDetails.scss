@@ -65,7 +65,11 @@ li {
         padding: 1rem;
         @include flex-it(nowrap, space-between, baseline, row);
         height: 3rem;
-        border-bottom: 1px solid $secondary-slate;
+        border-bottom: 1px solid $secondary-cloud;
+
+        @include tablet {
+            padding: 2rem;
+        }
     }
     &__title {
         @include flex-it (nowrap, flex-start, center, row);
@@ -73,11 +77,13 @@ li {
         padding-bottom: .5rem;
         &-text {
             font-size: 2rem;
+            margin-left: 1rem;
             &--lower{
                 padding-bottom: 0;
             }
         }
     }
+
     &__details {
         padding: 1rem;
     }
@@ -85,7 +91,7 @@ li {
 
 .details {
     @include tablet {
-        @include flex-it (nowrap, space-between, center, row);
+        @include flex-it (nowrap, space-between, flex-start, row);
         padding: 0 1rem;
     }
     
@@ -97,8 +103,6 @@ li {
     }
     
     &__text {
-        font-size: .75rem;
-        line-height: 1rem;
         padding-bottom: 1rem;
     }
     
@@ -108,13 +112,28 @@ li {
     
     &__item {
         @include tablet {
+            margin-top: 1rem;
             &--1 {
-                width: 40%;
+                flex: 1;
+                padding-right: 1rem;
             }
             &--2 {
-                width: 40%;
+                flex: 1;
+                padding-left: 1rem;
                 border-left: 1px solid $secondary-cloud;
-                padding-left: 3rem;
+            }
+        }
+    }
+
+    &__header {
+        text-transform: uppercase;
+        color: $secondary-slate;
+
+        &--last {
+            padding-top: 1rem;
+
+            @include tablet {
+                padding-top: 0;
             }
         }
     }
