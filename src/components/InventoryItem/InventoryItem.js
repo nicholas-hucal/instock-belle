@@ -2,16 +2,18 @@ import './InventoryItem.scss';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import { Link } from 'react-router-dom';
+import ChevronLink from '../ChevronLink/ChevronLink.js';
+
 
 export default function InventoryItem({ id, itemName, category, status, quantity, warehouseName, showModal }) {
-    
+
     return (
         <div className="inventory__item">
             <div className="inventory__text-box">
                 <div className="inventory__column--left">
                     <div className="inventory__content--1">
                         <h3 className="inventory__mobile-header">INVENTORY ITEM</h3>
-                        <Link to={`/inventory/${id}`} className="link">{itemName}</Link>
+                        <ChevronLink link={`/inventory/${id}`} text={itemName}/>
                     </div>
                     <div className="inventory__content--2">
                         <h3 className="inventory__mobile-header">CATEGORY</h3>

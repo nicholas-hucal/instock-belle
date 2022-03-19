@@ -50,6 +50,7 @@
         @include flex-it(nowrap, space-between, normal, row);
         box-sizing: border-box;
         color: $secondary-slate;
+        cursor: pointer;
         &--short {
             @include flex-it (nowrap, flex-start, center, row);
             width: 16%;

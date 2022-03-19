@@ -9,6 +9,13 @@ li {
     color: $primary-black;
 }
 
+#poof {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+
 .inStock {
     background-color: #15846338;
     color: $supporting-green;
