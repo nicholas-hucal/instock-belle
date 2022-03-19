@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './WarehouseForm.scss';
 import back from '../../assets/icons/arrow_back-24px.svg';
 import { emailRegex, phoneRegex } from '../../utils/validation.js';
-import axios from 'axios';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import api from '../../utils/api.js';

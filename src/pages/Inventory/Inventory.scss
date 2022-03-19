@@ -34,6 +34,7 @@
     }
 
     &__headers {
+
         display: none;
         color: $secondary-slate;
         background-color: $background-light-grey;
@@ -51,6 +52,7 @@
         box-sizing: border-box;
         color: $secondary-slate;
         cursor: pointer;
+        
         &--short {
             @include flex-it (nowrap, flex-start, center, row);
             width: 16%;

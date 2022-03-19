@@ -8,7 +8,7 @@ import api from '../../utils/api';
 import { Component } from 'react';
 
 class Warehouses extends Component {
-
+    
     state = {
         displayedWarehouses: [],
         displayModal: false,
@@ -61,7 +61,6 @@ class Warehouses extends Component {
         api
             .doSearch({search: search, type: 'warehouse'})
             .then(response => {
-                console.log(response.data)
                 this.setState({displayedWarehouses: response.data});
             })
             .catch(error => {

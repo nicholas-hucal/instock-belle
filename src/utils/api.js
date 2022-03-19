@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:8080";
 
-export default {
+const api =  {
     getAllWarehouses(){
         return axios.get(`${BASE_URL}/warehouse/`);
     },
@@ -34,3 +34,5 @@ export default {
         return axios.put(`${BASE_URL}/inventory/${id}`, inventory)
     }
 }
+
+export default api;
