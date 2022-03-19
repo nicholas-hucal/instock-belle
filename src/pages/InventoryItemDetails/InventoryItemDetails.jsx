@@ -43,7 +43,7 @@ export default class InventoryItemDetails extends Component {
                         <Link to={`/inventory/${id}/edit`} className="item__edit-link">
                             <div className="icon-background">
                                 <img className="edit-icon" src={editIcon} alt="Edit Icon" />
-                                <h4>Edit</h4>
+                                <h4 id="poof">Edit</h4>
                             </div>
                         </Link>
                     </li>
