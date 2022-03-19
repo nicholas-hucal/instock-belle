@@ -106,19 +106,19 @@ class Warehouses extends Component {
                 <div className="warehouses__headers">
                     <div className="warehouses__header warehouses__header--short" onClick={()=>this.doSort("name")}>
                         <h3>Warehouse</h3>
-                        <img src={sortIcon} alt='sort by Warehouse'/>
+                        <img src={sortIcon} alt='sort by Warehouse' className="warehouses__sort"/>
                     </div>
                     <div className="warehouses__header warehouses__header--long" onClick={()=>this.doSort("address")}>
                         <h3>Address</h3>
-                        <img src={sortIcon} alt='sort by Address'/>
+                        <img src={sortIcon} alt='sort by Address' className="warehouses__sort"/>
                     </div>
                     <div className="warehouses__header warehouses__header--short" onClick={()=>this.doSort("contactName")}>
                         <h3>Contact Name</h3>
-                        <img src={sortIcon} alt='sort by Contact Name'/>
+                        <img src={sortIcon} alt='sort by Contact Name' className="warehouses__sort"/>
                     </div>
                     <div className="warehouses__header warehouses__header--long" onClick={()=>this.doSort("contactEmail")}>
                         <h3>Contact Information</h3>
-                        <img src={sortIcon} alt='sort by Contact Information'/>
+                        <img src={sortIcon} alt='sort by Contact Information' className="warehouses__sort"/>
                     </div>
                     <h3 className="warehouses__header warehouses__header--action">Actions</h3>
                 </div>
