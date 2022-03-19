@@ -71,18 +71,24 @@ export default class Inventory extends Component {
   };
 
   doSort = (key) => {
-    const isOrded = this.state.displayedInventory[0]?.[key] < this.state.displayedInventory[1]?.[key];
-    const newList = this.state.displayedInventory.sort((a, b) => {
-        const nameA = a[key].toString().toUpperCase();
-        const nameB = b[key].toString().toUpperCase();
-        if (nameA < nameB) {
-          return isOrded ? 1 : -1;
-        }
-        if (nameA > nameB) {
-          return isOrded ? -1 : 1;
-        }
-        return 0;
-    });
+    const displayedList = this.state.displayedInventory;
+    const isOrded = displayedList[0]?.[key] < displayedList[displayedList.length -1]?.[key];
+    let newList;
+    if (typeof key === "string") {
+        newList = displayedList.sort((a, b) => {
+            const nameA = a[key].toString().toUpperCase();
+            const nameB = b[key].toString().toUpperCase();
+            if (nameA < nameB) {
+            return isOrded ? 1 : -1;
+            }
+            if (nameA > nameB) {
+            return isOrded ? -1 : 1;
+            }
+            return 0;
+        });
+    } else {
+        newList = displayedList.sort( (a, b) => a[key] - a[key]);
+    }
     this.setState({displayedInventory: newList})
 };
 
