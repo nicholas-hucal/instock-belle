@@ -28,7 +28,6 @@ class Warehouse extends React.Component{
   getInventory = (warehouseId) => {
     api.inventoryContent(warehouseId)
     .then((res) => {
-      console.log(res.data)
       this.setState({
         inventoryContent: res.data.inventories
       })
@@ -37,7 +36,6 @@ class Warehouse extends React.Component{
 
   componentDidMount(){
     this.getSelectedWarehouse(this.props.match.params.warehouseId);
-    // console.log(this.props.match.params.warehouseId)
     this.getInventory(this.props.match.params.warehouseId)
     
   }
@@ -58,7 +56,7 @@ class Warehouse extends React.Component{
           <img src={arrow} className="warehouse__header-icons" />
         </Link>
         <h2 className="warehouse__header-text">{name}</h2>
-        <Link to={`/${id}/edit`} className="warehouse__header-bg">edit</Link>
+        <Link to={`/warehouse/${id}/edit`} className="warehouse__header-bg">edit</Link>
       </section>
       <section className="warehouse__info">
         <h4 className="warehouse__info-headers">Warehouse Address:</h4>
