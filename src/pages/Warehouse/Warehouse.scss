@@ -50,23 +50,37 @@
         align-items: center;
     }
     &__info{
-        margin: 0 1.5rem;
+        padding: 1rem;
+        font-size: 0.75rem;
+
+        @include mixins.tablet {
+            padding: 2rem;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
         
         &-headers{
             color: colors.$secondary-slate;
-            font-size: 0.688rem;
             margin-bottom: 0;
+            text-transform: uppercase;
         }
         &-contact{
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            padding-top: 4.63vh;
-            padding-bottom: 2vh;
+            padding-top: 2rem;
+            flex-basis: 60%;
+
+            @include mixins.tablet {
+                padding-top: 0;
+            }
         }
-        &-text{
-            font-size: 0.813rem;
+        &-address{
+            flex: 1;
         }
     }
 
@@ -76,6 +90,27 @@
 
         @include mixins.tablet {
             display: inline;
+        }
+    }
+
+    &__info-column {
+        @include mixins.tablet {
+            padding: 0 2rem;
+        }
+        &--left {
+            @include mixins.tablet {
+                padding-left: 2rem;
+                border-left: 1px solid colors.$secondary-cloud;
+            }
+            @include mixins.desktop {
+                padding-left: 4rem;
+            }
+        }
+
+        &--right {
+            @include mixins.desktop {
+                margin-right: 2rem;
+            }
         }
     }
 }

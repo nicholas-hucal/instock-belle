@@ -62,15 +62,17 @@ class Warehouse extends React.Component {
           </Link>
         </section>
         <section className="warehouse__info">
-          <h4 className="warehouse__info-headers">Warehouse Address:</h4>
-          <p className="warehouse__info-text">{address}, {city}, {country}</p>
+          <div className='warehouse__info-address'>
+            <h4 className="warehouse__info-headers">Warehouse Address:</h4>
+            <p className="warehouse__info-text">{address}, {city}, {country}</p>
+          </div>
           <div className="warehouse__info-contact">
-            <div>
+            <div className='warehouse__info-column warehouse__info-column--left'>
               <h4 className="warehouse__info-headers">CONTACT NAME:</h4>
               <p className="warehouse__info-text">{contact && contact.name}</p>
               <p className="warehouse__info-text">{contact && contact.position}</p>
             </div>
-            <div>
+            <div className='warehouse__info-column warehouse__info-column--right'>
               <h4 className="warehouse__info-headers">CONTACT INFORMATION:</h4>
               <p className="warehouse__info-text">{contact && contact.phone}</p>
               <p className="warehouse__info-text">{contact && contact.email}</p>
