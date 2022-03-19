@@ -4,8 +4,7 @@ import editIcon from '../../assets/icons/edit-24px.svg';
 import { Link } from 'react-router-dom';
 
 export default function InventoryItem({ id, itemName, category, status, quantity, warehouseName, showModal }) {
-    console.log(status)
-
+    
     return (
         <div className="inventory__item">
             <div className="inventory__text-box">

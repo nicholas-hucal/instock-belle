@@ -6,6 +6,7 @@ import { Component } from 'react';
 import InventoryList from '../../components/InventoryList/InventoryList';
 import sortLogo from '../../assets/icons/sort-24px.svg';
 import InventoryModal from '../../components/InventoryModal/InventoryModal';
+import { Link } from 'react-router-dom';
 
 
 export default class Inventory extends Component {
@@ -35,7 +36,6 @@ export default class Inventory extends Component {
     axios
       .get("http://localhost:8080/inventory")
       .then((response) => {
-        console.log(response.data)
         this.setState({ displayedInventory: response.data });
       })
       .catch((err) => {
@@ -76,7 +76,9 @@ export default class Inventory extends Component {
           <h1>Inventory</h1>
           <div className='inventory__form'>
             <SearchBox doSearch={this.doSearch} />
-            <Button text="+ Add New Item" />
+            <Link to='/inventory/add'>
+              <Button text="+ Add New Item" />
+            </Link>
           </div>
         </div>
         <ul className="inventory__headers">
