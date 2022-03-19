@@ -23,7 +23,7 @@
 
     &__header {
         box-sizing: border-box;
-        &--short {
+        &--short { 
             width: 22.5%;
             padding-left: 1.7rem;
             @include desktop{
