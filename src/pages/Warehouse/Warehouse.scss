@@ -2,5 +2,48 @@
 @use '../../styles/partials/mixins';
 
 .warehouse {
-    
+    &__header{
+        display: flex;
+        align-items: center;
+        padding: 2rem 1.5rem;
+        border-bottom: colors.$secondary-cloud 0.01rem solid;
+        &-icons{
+            padding-top: 1.5vh;
+            width: 6vw;
+        }
+        &-text{
+            padding-left: 0.5rem;
+            padding-right: 4.5rem;
+        }
+        &-bg{
+            height: 2rem;
+            width: 2.2rem;
+            border-radius: 50%;
+            background-color: colors.$primary-indigo;
+            background-image: url(../../assets/icons/edit-24px.svg);
+            background-repeat: no-repeat;
+            background-size: 1rem;
+            background-position: 3vw;
+        }
+    }
+    &__info{
+        margin: 0 1.5rem;
+        
+        &-headers{
+            color: colors.$secondary-slate;
+            font-size: 0.688rem;
+            margin-bottom: 0;
+        }
+        &-contact{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 4.63vh;
+            padding-bottom: 2vh;
+        }
+        &-text{
+            font-size: 0.813rem;
+        }
+    }
 }

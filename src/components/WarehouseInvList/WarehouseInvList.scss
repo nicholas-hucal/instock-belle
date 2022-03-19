@@ -1,0 +1,39 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+
+.inventory{
+    &__headers {
+        display: none;
+        color: $secondary-slate;
+        background-color: $background-light-grey;
+        text-transform: uppercase;
+        padding: 1rem 0;
+
+        @include tablet {
+            @include flex-it(nowrap, flex-start, normal, row);
+        }
+    }
+
+    &__header {
+        box-sizing: border-box;
+        &--short {
+            width: 22.5%;
+            padding-left: 1.7rem;
+            @include desktop{
+                padding-left: 2.5rem;
+            }
+        }
+
+        &--long {
+            width: 22.5%;
+        }
+
+        &--action {
+            width: 10%;
+        }
+    }
+}
