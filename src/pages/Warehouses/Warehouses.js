@@ -12,7 +12,7 @@ class Warehouses extends Component {
     state = {
         displayedWarehouses: [],
         displayModal: false,
-        clickedWarehouseId: ''
+        clickedWarehouse: ''
     };
 
     showModal = () => {
@@ -23,9 +23,11 @@ class Warehouses extends Component {
         this.setState({ displayModal: false });
     };
 
-    selectWarehouse = (selectedWarehouseId) => {
+    selectWarehouse = (selectedWarehouseId, selectedWarehouseName) => {
         this.setState(
-            {clickedWarehouseId: selectedWarehouseId},
+            {clickedWarehouse: 
+                {id: selectedWarehouseId, name: selectedWarehouseName}
+            },
             this.showModal()
         );
     };
@@ -43,7 +45,7 @@ class Warehouses extends Component {
 
     deleteOne = () => {
         api
-            .deleteWarehouseById(this.state.clickedWarehouseId)
+            .deleteWarehouseById(this.state.clickedWarehouse.id)
             .then(() => {
                 this.updateList();
                 this.hideModal();
@@ -126,7 +128,7 @@ class Warehouses extends Component {
                     <WarehouseList displayList={this.state.displayedWarehouses} selectWarehouse={this.selectWarehouse}/>
                 </div>
                 {this.state.displayModal && 
-                    <WarehouseModal hideModal={this.hideModal} delete={this.deleteOne}/>
+                    <WarehouseModal hideModal={this.hideModal} delete={this.deleteOne} name={this.state.clickedWarehouse.name} />
                 }
             </div>
         );

@@ -1,6 +1,6 @@
 /**
- * Component: Individual warehouse card with minimum information
- * @props ...
+ * Component: Individual warehouse card to be listed
+ * @props id, name, address, contactName, contactPhone, contactEmail, selectWarehouse
  */
 
 import './WarehouseItem.scss';
@@ -36,7 +36,7 @@ function WarehouseItem ({ id, name, address, contactName, contactPhone, contactE
                 </div>
             </div>
             <div className="warehouses__action">
-                <img src={deleteIcon} alt='delete icon' className="warehouses__icon" onClick={() => selectWarehouse(id)}/>
+                <img src={deleteIcon} alt='delete icon' className="warehouses__icon" onClick={() => selectWarehouse(id, name)}/>
                 <Link to={`/${id}/edit`} className="warehouses__link"><img src={editIcon} alt='edit icon' className="warehouses__icon"/></Link>
             </div>
         </div>
