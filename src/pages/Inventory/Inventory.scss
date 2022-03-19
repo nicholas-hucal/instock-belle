@@ -23,7 +23,7 @@
     }
 
     &__form {
-        @include flex-it(nowrap, flex-start, center, column);
+        @include flex-it(nowrap, flex-start, stretch, column);
         gap: 1.3rem;
         margin: 1.5rem 0;
 

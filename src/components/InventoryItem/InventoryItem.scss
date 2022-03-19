@@ -19,14 +19,15 @@
 }
 
 .inStock {
-    background-color: #15846338;
+    background-color: #15846315;
     color: $supporting-green;
     border-radius: 2rem;
     font-weight: 600;
-    width: 80px;
-    height: 30px;
+    width: 60px;
+    height: 25px;
     text-align: center;
     text-transform: uppercase;
+    font-size: .75rem;
 }
 
 .outStock {
@@ -34,10 +35,11 @@
     color: $supporting-red;
     border-radius: 2rem;
     font-weight: 600;
-    width: 110px;
-    height: 30px;
+    width: 85px;
+    height: 25px;
     text-align: center;
     text-transform: uppercase;
+    font-size: .75rem;
 }
 
 .inventory {
