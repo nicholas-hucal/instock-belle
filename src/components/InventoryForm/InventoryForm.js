@@ -33,7 +33,6 @@ class InventoryForm extends Component {
             inputs.forEach(field => {
                 data[field.name] = field.value;
             })
-            console.log(data);
             if (this.state.currentItem) {
                 data.id = this.state.currentItem;
                 api

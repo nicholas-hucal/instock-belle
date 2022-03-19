@@ -1,9 +1,9 @@
 import "./InventoryItemDetails.scss";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import goBackIcon from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import { Component } from "react";
+import api from "../../utils/api";
 
 export default class InventoryItemDetails extends Component {
 
@@ -12,8 +12,8 @@ export default class InventoryItemDetails extends Component {
     };
 
     getItem = () => {
-        axios
-            .get(`http://localhost:8080/inventory/${this.props.match.params.inventoryId}`)
+        api
+            .getInventoryById(this.props.match.params.inventoryId)
             .then((response) => {
                 this.setState({ displayedItem: response.data });
             })

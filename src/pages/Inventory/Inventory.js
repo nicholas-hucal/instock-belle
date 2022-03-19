@@ -1,5 +1,4 @@
 import './Inventory.scss';
-import axios from 'axios';
 import Button from '../../components/Button/Button';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import { Component } from 'react';
@@ -19,14 +18,14 @@ export default class Inventory extends Component {
   };
 
   showModal = (item) => {
-    this.setState({ 
+    this.setState({
       displayModal: true,
-      deleteItem: item, 
+      deleteItem: item,
     });
   };
 
   hideModal = () => {
-    this.setState({ displayModal: false, deleteItem: {}});
+    this.setState({ displayModal: false, deleteItem: {} });
   };
 
   componentDidMount() {
@@ -34,8 +33,8 @@ export default class Inventory extends Component {
   };
 
   updateList = () => {
-    axios
-      .get("http://localhost:8080/inventory")
+    api
+      .getAllInventory()
       .then((response) => {
         this.setState({ displayedInventory: response.data });
       })
@@ -45,16 +44,16 @@ export default class Inventory extends Component {
   };
 
   deleteOne = () => {
-    axios
-        .delete(`http://localhost:8080/inventory/${this.state.deleteItem.id}`)
-        .then(() => {
-            this.updateList();
-            this.hideModal();
-        })
-        .catch((err) => {
-            console.log(err);
-            this.hideModal();
-        });
+    api
+      .deleteInventory(this.state.deleteItem.id)
+      .then(() => {
+        this.updateList();
+        this.hideModal();
+      })
+      .catch((err) => {
+        console.log(err);
+        this.hideModal();
+      });
   };
 
   doSearch = (event) => {
@@ -62,7 +61,6 @@ export default class Inventory extends Component {
     api
       .doSearch({ search: search, type: 'inventory' })
       .then(response => {
-        console.log(response.data)
         this.setState({ displayedInventory: response.data });
       })
       .catch(error => {
@@ -72,25 +70,25 @@ export default class Inventory extends Component {
 
   doSort = (key) => {
     const displayedList = this.state.displayedInventory;
-    const isOrded = displayedList[0]?.[key] < displayedList[displayedList.length -1]?.[key];
+    const isOrded = displayedList[0]?.[key] < displayedList[displayedList.length - 1]?.[key];
     let newList;
     if (typeof key === "string") {
-        newList = displayedList.sort((a, b) => {
-            const nameA = a[key].toString().toUpperCase();
-            const nameB = b[key].toString().toUpperCase();
-            if (nameA < nameB) {
-            return isOrded ? 1 : -1;
-            }
-            if (nameA > nameB) {
-            return isOrded ? -1 : 1;
-            }
-            return 0;
-        });
+      newList = displayedList.sort((a, b) => {
+        const nameA = a[key].toString().toUpperCase();
+        const nameB = b[key].toString().toUpperCase();
+        if (nameA < nameB) {
+          return isOrded ? 1 : -1;
+        }
+        if (nameA > nameB) {
+          return isOrded ? -1 : 1;
+        }
+        return 0;
+      });
     } else {
-        newList = displayedList.sort( (a, b) => a[key] - a[key]);
+      newList = displayedList.sort((a, b) => a[key] - a[key]);
     }
-    this.setState({displayedInventory: newList})
-};
+    this.setState({ displayedInventory: newList })
+  };
 
   render = () => {
     return (
@@ -105,23 +103,23 @@ export default class Inventory extends Component {
           </div>
         </div>
         <ul className="inventory__headers">
-          <li className='inventory__header' onClick={()=>this.doSort("itemName")}>
+          <li className='inventory__header' onClick={() => this.doSort("itemName")}>
             <h3 className="inventory__header">Inventory Item</h3>
             <img src={sortLogo} alt="sorting logo" />
           </li>
-          <li className='inventory__header' onClick={()=>this.doSort("category")}>
+          <li className='inventory__header' onClick={() => this.doSort("category")}>
             <h3 className="inventory__header">Category</h3>
             <img src={sortLogo} alt="sorting logo" />
           </li>
-          <li className='inventory__header' onClick={()=>this.doSort("status")}>
+          <li className='inventory__header' onClick={() => this.doSort("status")}>
             <h3 className="inventory__header">Status</h3>
             <img src={sortLogo} alt="sorting logo" />
           </li>
-          <li className='inventory__header' onClick={()=>this.doSort("quantity")}>
+          <li className='inventory__header' onClick={() => this.doSort("quantity")}>
             <h3 className="inventory__header">Qty</h3>
             <img src={sortLogo} alt="sorting logo" />
           </li>
-          <li className='inventory__header' onClick={()=>this.doSort("warehouseName")}>
+          <li className='inventory__header' onClick={() => this.doSort("warehouseName")}>
             <h3 className="inventory__header">Warehouse</h3>
             <img src={sortLogo} alt="sorting logo" />
           </li>
