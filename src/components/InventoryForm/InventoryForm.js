@@ -38,7 +38,7 @@ class InventoryForm extends Component {
                 api
                     .editInventory(data, data.id)
                     .then(response => {
-                        this.props.history.push(`/${response.data.id}`);
+                        this.props.history.push(`/inventory/${response.data.id}`);
                     })
                     .catch(err => {
                         console.log(err)
@@ -47,7 +47,7 @@ class InventoryForm extends Component {
                 api
                     .addInventory(data)
                     .then(response => {
-                        this.props.history.push(`/${response.data.id}`);
+                        this.props.history.push(`/inventory/${response.data.id}`);
                     })
                     .catch(err => {
                         console.log(err)
