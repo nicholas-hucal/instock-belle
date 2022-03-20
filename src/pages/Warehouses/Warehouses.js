@@ -96,15 +96,15 @@ class Warehouses extends Component {
 
     render () {
         return (
-            <div className='warehouses'>
-                <div className='warehouses__nav'>
+            <main className='warehouses'>
+                <section className='warehouses__nav'>
                     <h1>Warehouses</h1>
                     <div className='warehouses__form'>
                         <SearchBox doSearch={this.doSearch}/>
                         <Button text="+ Add New Warehouse" onClick={() => this.props.history.push('/warehouse/add')}/>
                     </div>
-                </div>
-                <div className="warehouses__headers">
+                </section>
+                <section className="warehouses__headers">
                     <div className="warehouses__header warehouses__header--short" onClick={()=>this.doSort("name")}>
                         <h3>Warehouse</h3>
                         <img src={sortIcon} alt='sort by Warehouse' className="warehouses__sort"/>
@@ -122,14 +122,14 @@ class Warehouses extends Component {
                         <img src={sortIcon} alt='sort by Contact Information' className="warehouses__sort"/>
                     </div>
                     <h3 className="warehouses__header warehouses__header--action">Actions</h3>
-                </div>
-                <div className='warehouses__list'>
+                </section>
+                <section className='warehouses__list'>
                     <WarehouseList displayList={this.state.displayedWarehouses} selectWarehouse={this.selectWarehouse}/>
-                </div>
+                </section>
                 {this.state.displayModal && 
                     <WarehouseModal hideModal={this.hideModal} delete={this.deleteOne} name={this.state.clickedWarehouse.name} />
                 }
-            </div>
+            </main>
         );
     };
 };

@@ -32,6 +32,34 @@ class Warehouse extends React.Component {
       })
   }
 
+  inventorySort = (key) => {
+    const displayedList = this.state.inventoryContent;
+    const isOrded = displayedList[0]?.[key] < displayedList[displayedList.length - 1]?.[key];
+    let newList;
+    if (typeof displayedList[0]?.[key] === "string") {
+        newList = displayedList.sort((a, b) => {
+            const nameA = a[key].toString().toUpperCase();
+            const nameB = b[key].toString().toUpperCase();
+            if (nameA < nameB) {
+            return isOrded ? 1 : -1;
+            }
+            if (nameA > nameB) {
+            return isOrded ? -1 : 1;
+            }
+            return 0;
+        });
+    } else {
+        newList = displayedList.sort((a, b) => {
+          if (isOrded) {
+            return b[key] - a[key]
+          } else {
+            return a[key] - b[key]
+          }
+        });
+    }
+    this.setState({inventoryContent: newList})
+};
+
   componentDidMount() {
     this.getSelectedWarehouse(this.props.match.params.warehouseId);
     this.getInventory(this.props.match.params.warehouseId)
@@ -79,7 +107,7 @@ class Warehouse extends React.Component {
             </div>
           </div>
         </section>
-        <WarehouseInvList warehouseId={id} getInventory={this.getInventory} list={this.state.inventoryContent} />
+        <WarehouseInvList warehouseId={id} getInventory={this.getInventory} list={this.state.inventoryContent} inventorySort={this.inventorySort}/>
       </main>
     )
   }
