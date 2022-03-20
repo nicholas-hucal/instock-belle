@@ -1,0 +1,21 @@
+@use "variables" as *;
+
+@mixin tablet() {
+    @media (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
+
+@mixin flex-it ($wrap: nowrap, $justify: flex-start, $align: stretch, $direction: row) {
+    display: flex;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}

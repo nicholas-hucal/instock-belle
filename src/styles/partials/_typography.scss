@@ -1,0 +1,70 @@
+@use "mixins";
+@use "colors";
+
+@font-face {
+    font-family: 'Titillium Web';
+    src: 
+        url('../../assets/fonts/TitilliumWeb-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Titillium Web';
+    src: 
+        url('../../assets/fonts/TitilliumWeb-SemiBold.ttf');
+    font-weight: 600;
+    font-style: bold;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    @include mixins.tablet {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+}
+
+h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    @include mixins.tablet {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}
+
+h3, a, button, label {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    font-family: 'Titillium Web';
+    @include mixins.tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.625rem;
+    @include mixins.tablet {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+}

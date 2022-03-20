@@ -1,0 +1,57 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+
+.invList{
+    &__headers {
+        display: none;
+        color: $secondary-slate;
+        background-color: $background-light-grey;
+        text-transform: uppercase;
+        padding: 1rem 0;
+
+        @include tablet {
+            @include flex-it(nowrap, flex-start, normal, row);
+        }
+        @include desktop{
+            @include flex-it(nowrap, flex-start, normal, row);
+        }
+    }
+
+    &__header {
+        box-sizing: border-box;
+        display: flex;
+        gap: 2%;
+
+        &--short { 
+            width: 22.5%;
+            padding-left: 1.7rem;
+            @include desktop{
+                padding-left: 2.5rem;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &--long {
+            width: 22.5%;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &--action {
+            width: 10%;
+        }
+    }
+
+    &__sort {
+        height: 1.5rem;
+    }
+}

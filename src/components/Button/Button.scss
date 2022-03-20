@@ -1,0 +1,48 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.call-to-action {
+    background-color: $primary-indigo;
+    color: $primary-white;
+    height: 40px;
+    padding: 0 0.5rem;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    @include tablet {
+        width: auto;
+        padding: 0 1.5rem;
+    }
+
+    &:hover {
+        background-color: $background-graphite;
+        cursor: pointer;
+    }
+
+    &__text{
+        margin: 0;
+        font-size: 0.95em;
+    }
+
+    &__icon {
+        height: 1.3rem;
+        position: absolute;
+        left: 0.5rem;
+    }
+
+    &--cancel {
+        background-color: $primary-white;
+        color: $primary-black;
+
+        &:hover {
+            color: $primary-white;
+        }
+    }
+
+}

@@ -1,0 +1,140 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+
+li {
+    color: $primary-black;
+}
+
+#poof {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+
+.inStock {
+    background-color: #15846338;
+    color: $supporting-green;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .75rem;
+}
+
+.outStock {
+    background-color: #c948153a;
+    color: $supporting-red;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: 85px;
+    height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .75rem;
+}
+
+.edit-icon {
+    filter: brightness(0) invert(1);
+}
+
+.icon-background {
+    @include flex-it(nowrap, center, center, row);
+    height: 40px;
+    width: 40px;
+    background-color: $primary-indigo;
+    border-radius: 2rem;
+    @include tablet {
+        width: 80px;
+    }
+}
+
+.back-icon {
+    @include flex-it (nowrap, center, center, row)
+}
+
+.item {
+    height: fit-content;
+    &__list {
+        padding: 1rem;
+        @include flex-it(nowrap, space-between, baseline, row);
+        height: 3rem;
+        border-bottom: 1px solid $secondary-cloud;
+
+        @include tablet {
+            padding: 2rem;
+        }
+    }
+    &__title {
+        @include flex-it (nowrap, flex-start, center, row);
+        width: 70%;
+        padding-bottom: .5rem;
+        &-text {
+            font-size: 2rem;
+            margin-left: 1rem;
+            &--lower{
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    &__details {
+        padding: 1rem;
+    }
+}
+
+.details {
+    @include tablet {
+        @include flex-it (nowrap, space-between, flex-start, row);
+        padding: 0 1rem;
+    }
+    
+    &__container {
+        @include flex-it (nowrap, space-between, center, row);
+        @include tablet {
+            padding-bottom: 1rem;
+        }
+    }
+    
+    &__text {
+        padding-bottom: 1rem;
+    }
+    
+    &__quantity {
+        padding-right: 4rem;
+    }
+    
+    &__item {
+        @include tablet {
+            margin-top: 1rem;
+            &--1 {
+                flex: 1;
+                padding-right: 1rem;
+            }
+            &--2 {
+                flex: 1;
+                padding-left: 1rem;
+                border-left: 1px solid $secondary-cloud;
+            }
+        }
+    }
+
+    &__header {
+        text-transform: uppercase;
+        color: $secondary-slate;
+
+        &--last {
+            padding-top: 1rem;
+
+            @include tablet {
+                padding-top: 0;
+            }
+        }
+    }
+}

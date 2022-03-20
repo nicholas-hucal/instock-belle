@@ -1,0 +1,124 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+.invItem {
+    &__item {
+        padding: 1rem 1rem;
+        border-bottom: 1.5px solid $secondary-cloud;
+        @include tablet {
+            @include flex-it(nowrap, space-between, normal, row);
+        }
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background-color: rgba(46, 102, 230, 0.07);
+        }
+    }
+
+    &__text-box {
+        @include flex-it(nowrap, space-between, normal, row);
+        @include tablet {
+            width: 90%;
+        }
+    }
+
+    &__column {
+        @include flex-it(wrap, flex-start, normal, column);
+        width: 45%;
+        gap: 1rem;
+
+        @include tablet {
+            @include flex-it(nowrap, flex-start, normal, row);
+            width: 50%;
+            gap: 0;
+        }
+    }
+
+    &__mobile-header {
+        display: block;
+        color: $secondary-slate;
+        text-transform: uppercase;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__content {
+        width: auto;
+        box-sizing: border-box;
+        &--short {
+            @include tablet {
+                width: 50%;
+                padding-left: 0.7rem;
+            }
+            @include desktop{
+                padding-left: 2.5rem;
+            }
+        }
+        &--long {
+            @include tablet {
+                width: 50%;
+            }
+        }
+    }
+
+    &__action {
+        @include flex-it(nowrap, space-between, normal, row);
+        @include tablet {
+            display: inline-block;
+            width: 10%;
+        }
+    }
+
+    &__icon {
+        height: 1.8rem;
+        margin: 1rem 2rem 0 0;
+        @include tablet {
+            margin: 1rem 0.5rem 0 0;
+        }
+        @include desktop {
+            margin: 1rem 2rem 0 0;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__link {
+        margin: 0;
+        padding: 0;
+        width: 1.8rem;
+        display: inline-block;
+    }
+    &__inStock{
+        margin-top: 0.1rem;
+        width: 3.8rem;
+        background: rgba(21, 132, 99, 0.07);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1.25rem;
+        color: $supporting-green;
+        @include tablet{
+            margin-right: 5rem;
+        }
+    }
+    &__outStock{
+        background: rgba(201, 69, 21, 0.07);
+        margin-top: 0.1rem;
+        width: 5.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1.25rem;
+        color: $supporting-red;
+    }
+}
