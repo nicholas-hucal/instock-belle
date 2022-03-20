@@ -52,6 +52,7 @@
     &__info{
         padding: 1rem;
         font-size: 0.75rem;
+        border-bottom: 1.5px solid colors.$secondary-cloud;
 
         @include mixins.tablet {
             padding: 2rem;
@@ -59,6 +60,7 @@
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
+            border-bottom: none;
         }
 
         

@@ -23,20 +23,35 @@
 
     &__header {
         box-sizing: border-box;
+        display: flex;
+        gap: 2%;
+
         &--short { 
             width: 22.5%;
             padding-left: 1.7rem;
             @include desktop{
                 padding-left: 2.5rem;
             }
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         &--long {
             width: 22.5%;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         &--action {
             width: 10%;
         }
+    }
+
+    &__sort {
+        height: 1.5rem;
     }
 }
