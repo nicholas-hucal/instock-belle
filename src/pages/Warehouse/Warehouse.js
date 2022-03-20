@@ -108,6 +108,9 @@ class Warehouse extends React.Component {
           </div>
         </section>
         <WarehouseInvList warehouseId={id} getInventory={this.getInventory} list={this.state.inventoryContent} inventorySort={this.inventorySort}/>
+        {!this.state.inventoryContent.length && 
+          <p className="warehouse__notice">There are currently no inventory items in this warehouse</p>
+        }
       </main>
     )
   }
