@@ -70,7 +70,7 @@ export default class Inventory extends Component {
 
   doSort = (key) => {
     const displayedList = this.state.displayedInventory;
-    const isOrded = displayedList[0]?.[key] < displayedList[displayedList.length -1]?.[key];
+    const isOrded = displayedList[0]?.[key] < displayedList[displayedList.length - 1]?.[key];
     let newList;
     if (typeof displayedList[0]?.[key] === "string") {
         newList = displayedList.sort((a, b) => {
@@ -93,7 +93,7 @@ export default class Inventory extends Component {
           }
         });
     }
-    this.setState({inventoryContent: newList})
+    this.setState({displayedInventory: newList})
 };
 
   render = () => {

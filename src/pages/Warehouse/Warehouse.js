@@ -34,7 +34,7 @@ class Warehouse extends React.Component {
 
   inventorySort = (key) => {
     const displayedList = this.state.inventoryContent;
-    const isOrded = displayedList[0]?.[key] < displayedList[displayedList.length -1]?.[key];
+    const isOrded = displayedList[0]?.[key] < displayedList[displayedList.length - 1]?.[key];
     let newList;
     if (typeof displayedList[0]?.[key] === "string") {
         newList = displayedList.sort((a, b) => {
