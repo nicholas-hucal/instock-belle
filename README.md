@@ -2,7 +2,7 @@
 
 ## Description
 
-InStock is a React App built in Collaboration with 3 other coders. We used a Jira board in an agile setting to complete the project while implementing proper techniques. The app connects to an Express and MySql backend via a RESTful interface for dynamic data.
+InStock is a React App built in Collaboration with 3 other coders. We used a Jira board in an agile setting to complete the project while implementing proper techniques. The app connects to an Express backend via a RESTful interface for dynamic data.
 
 Tech Used: 
 
