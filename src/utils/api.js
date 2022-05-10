@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://boiling-beach-55559.herokuapp.com";
+const BASE_URL = "https://instock-serverr.herokuapp.com";
 
 const api =  {
     getAllWarehouses(){
